@@ -46,44 +46,34 @@ namespace DrinkVendingMachine.Controllers
 
             decimal tmp = givenBackMoney.Sum();
 
-            if( givenMoney - itemPrice - Coin.Five - tmp >= 0 ){
-                givenBackMoney.Add( Coin.Five);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
-
-            }else if(givenMoney - itemPrice - Coin.Two - tmp >= 0){
-                givenBackMoney.Add( Coin.Two);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
-            }
-            else if (givenMoney - itemPrice - Coin.One - tmp >= 0)
+            switch (givenMoney - itemPrice - tmp)
             {
-                givenBackMoney.Add(Coin.One);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
-            }
-            else if (givenMoney - itemPrice - Coin.FiftyCent - tmp >= 0)
-            {
-                givenBackMoney.Add(Coin.FiftyCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
-            }
-            else if (givenMoney - itemPrice - Coin.TwentyCent - tmp >= 0)
-            {
-                givenBackMoney.Add(Coin.TwentyCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
-            }
-            else if (givenMoney - itemPrice - Coin.TenCent - tmp >= 0)
-            {
-                givenBackMoney.Add(Coin.TenCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
-            }
-            else if (givenMoney - itemPrice - Coin.FiveCent - tmp >= 0)
-            {
-                givenBackMoney.Add(Coin.FiveCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                case decimal n when (n >= Coin.Five):
+                    givenBackMoney.Add(Coin.Five);
+                    return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                case decimal n when (n >= Coin.Two):
+                    givenBackMoney.Add(Coin.Two);
+                    return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                case decimal n when (n >= Coin.One):
+                    givenBackMoney.Add(Coin.One);
+                    return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                case decimal n when (n >= Coin.FiftyCent):
+                    givenBackMoney.Add(Coin.FiftyCent);
+                    return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                case decimal n when (n >= Coin.TwentyCent):
+                    givenBackMoney.Add(Coin.TwentyCent);
+                    return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                case decimal n when (n >= Coin.TenCent):
+                    givenBackMoney.Add(Coin.TenCent);
+                    return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                case decimal n when (n >= Coin.FiveCent):
+                    givenBackMoney.Add(Coin.FiveCent);
+                    return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                default: // recursion end
+                    return givenBackMoney;
             }
 
-            // end of the recursion
-            else{
-                return givenBackMoney;
-            }
+
 
         }
 
