@@ -1,0 +1,72 @@
+﻿#container-box {
+    width: 310px;
+    border: 1px solid black;
+}
+
+.coin {
+    width: 40px;
+    height: 50px;
+    background: grey;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+    flex-direction: column;
+    width: 40px;
+}
+
+.flex-head {
+    background-color: #f1f1f1 !important;
+    margin: 5px !important;
+    padding: 15px !important;
+    font-size: 10px !important;
+    width: 25px !important;
+    height: 10px !important;
+}
+
+.flex-container > div {
+    background-color: gold;
+    margin: 3px;
+    padding: 2px;
+    font-size: 10px;
+    height: 2px;
+}
+
+.stack{
+    display: inline-block;
+}
+
+
+.coin-five {
+    transform: scale(1.15);
+}
+
+.coin-two {
+    transform: scale(1.05)
+}
+
+.coin-one {
+    transform: scale(1)
+}
+
+.coin-half{
+    transform: scale(0.20);
+}
+
+.coin-twenty-c{
+    transform: scale(0.50);
+}
+
+.coin-ten-c {
+    transform: scale(0.40);
+}
+
+.coin-five-c {
+    transform: scale(0.30);
+
+}
