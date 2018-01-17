@@ -25,9 +25,16 @@
     <Folder Include="ClientApp\app\components\coinstore\" />
     <Folder Include="Model\" />
     <Folder Include="Data\" />
+    <Folder Include="ClientApp\app\components\drinkcan\" />
+    <Folder Include="ClientApp\app\components\coindrawer\" />
+    <Folder Include="ClientApp\app\components\coin\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Model\Item.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ClientApp\app\components\coin\coinstore.component.html" />
+    <None Remove="ClientApp\app\components\coin\coinstore.component.css" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->

@@ -11,6 +11,8 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { DispenserComponent } from './components/dispenser/dispenser.component';
 import { CoinStoreComponent } from './components/coinstore/coinstore.component';
+import { DrinkCanComponent } from './components/drinkcan/drinkcan.component';
+import { CoinDrawerComponent } from './components/coindrawer/coindrawer.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import { CoinStoreComponent } from './components/coinstore/coinstore.component';
         FetchDataComponent,
         HomeComponent,
         DispenserComponent,
-        CoinStoreComponent
+        CoinStoreComponent,
+        DrinkCanComponent,
+        CoinDrawerComponent
     ],
     imports: [
         CommonModule,

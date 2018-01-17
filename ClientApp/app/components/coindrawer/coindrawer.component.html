@@ -1,0 +1,38 @@
+﻿<div class="container">
+    <div class="row">
+        <!--<div class="col-sm-1">
+            <div class="coin coin-five" (click)="onSelect()">>5</div>
+        </div>
+        <div class="col-sm-1">
+            <div class="coin coin-two">2</div>
+        </div>
+        <div class="col-sm-1">
+            <div class="coin coin-one">1</div>
+        </div>
+        <div class="col-sm-1">
+            <div class="coin coin-half">1/2</div>
+        </div>
+        <div class="col-sm-1">
+            <div class="coin coin-twenty-c">0.20</div>
+        </div>
+        <div class="col-sm-1">
+            <div class="coin coin-ten-c">0.10</div>
+        </div>
+        <div class="col-sm-1">
+            <div class="coin coin-five-c">0.05</div>
+        </div>-->
+
+        <div *ngIf="lastCoin">
+            <h1>{{lastCoin.value}}</h1>
+        </div>
+           
+            <li *ngFor="let coin of coins">
+                <div class="col-sm-1">
+                    <div (click)="onUseCoin(coin)" class="coin {{coin.cssStyle}}">{{coin.name}}</div>
+                </div>
+            </li>
+
+        </div>
+</div>
+
+

@@ -6,20 +6,79 @@
 
 <div id="container-box">
 
+
     <div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">5</div>
+            <div *ngFor="let coin of fiveCoins"></div>
+        </div>
+    </div>
+
+
+    <div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">2</div>
+            <div *ngFor="let coin of twoCoins"></div>
+        </div>
+    </div>
+
+    <div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">1</div>
+            <div *ngFor="let coin of oneCoins"></div>
+        </div>
+    </div>
+
+    <div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">1/2</div>
+            <div *ngFor="let coin of fiftyCoins"></div>
+        </div>
+    </div>
+
+    <div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">20</div>
+            <div *ngFor="let coin of twentyCCoins"></div>
+        </div>
+    </div>
+
+    <div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">10</div>
+            <div *ngFor="let coin of tenCCoins"></div>
+        </div>
+    </div>
+
+    <div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">05</div>
+            <div *ngFor="let coin of fiveCCoins"></div>
+        </div>
+    </div>
+
+
+    <!--<div class=stack>
         <div class="flex-container">
             <div class="flex-head">5</div>
             <div *ngFor="let coin of countObservable | async"></div>
         </div>
-    </div>
-    <div class="stack">
+    </div>-->
+    <!--<div class="stack">
         <div class="flex-container">
             <div class="flex-head">2</div>
             <div></div>
             <div></div>
             <div></div>
         </div>
+    </div>-->
+    <!--<div class=stack>
+        <div class="flex-container">
+            <div class="flex-head">2</div>
+            <div *ngFor="let coin of twoCoins"></div>
+        </div>
     </div>
+
     <div class="stack">
         <div class="flex-container">
             <div class="flex-head">1</div>
@@ -63,5 +122,9 @@
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div>-->
+
+
+    <button (click)="AddTwoCoin()">Add two coin</button>
+
 </div>

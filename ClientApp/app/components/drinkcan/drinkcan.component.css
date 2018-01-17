@@ -1,0 +1,172 @@
+
+::-webkit-input-placeholder,
+:-moz-placeholder {
+    color: #fff
+}
+
+
+
+/* === Coca Cola Can === */
+.coca-cola {
+    position: relative;
+    width: 100px;
+    height: 215px;
+    /*padding: 60px;
+    padding-bottom: 20px;
+    margin: 40px auto;*/
+    /*overflow: hidden;*/
+    border: 1px solid rgba(255,255,255,0.1);
+    /*box-shadow: inset 0px 0px 5px #008EC4;*/
+    z-index: 1;
+    float: none;
+    margin: 0 auto
+
+}
+
+
+.can-top {
+    position: relative;
+    width: 72px;
+    height: 3%;
+    margin: 0 auto;
+    margin-bottom: -4px;
+    background: #aaa;
+    border-radius: 35%;
+    z-index: 100;
+    border: 1px solid #666
+}
+
+    .can-top .shades {
+        width: 100%;
+        height: 100%;
+        border-radius: 35%;
+        z-index: 100
+    }
+
+.can-body {
+    position: relative;
+    height: 180px;
+    border-radius: 2% / 50%;
+    z-index: 100
+}
+
+    .can-body .cut-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 20px solid white;
+        border-right: 15px solid transparent
+    }
+
+    .can-body .cut-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-top: 20px solid white;
+        border-left: 15px solid transparent
+    }
+
+    .can-body .top-shade {
+        position: absolute;
+        top: 0px;
+        left: 5px;
+        width: 90%;
+        height: 1px;
+        box-shadow: 0px 25px 10px #58080A
+    }
+
+    .can-body .middle-shade {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 15px;
+        height: 80%;
+        box-shadow: 100px 30px 70px #58080A
+    }
+
+    .can-body .bottom {
+        position: absolute;
+        left: 2px;
+        bottom: -4%;
+        width: 96%;
+        height: 10%;
+        border-radius: 90% / 80%
+    }
+
+        .can-body .bottom .shades {
+            position: absolute;
+            top: 0px;
+            width: 80%;
+            height: 10%;
+            background: transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+            /*background:black;*/
+            box-shadow: 0px 32px 20px rgba(0,0,0,0.3)
+        }
+
+    .can-body h5 {
+        position: absolute;
+        top: 20%;
+        left: 40px;
+        height: 65%;
+        width: 100px;
+        line-height: 50px;
+        color: #fff;
+        font-size: 8em;
+        z-index: 100
+    }
+
+        .can-body h5 small {
+            display: block;
+            padding-right: 130px;
+            padding-top: 0px;
+            font-family: Arial;
+            font-size: 0.15em;
+            font-weight: lighter;
+            color: #fff;
+            text-align: center
+        }
+
+
+
+.can-bottom {
+    position: relative;
+    width: 94px;
+    height: 5%;
+    margin: 0 auto;
+    margin-top: -1px;
+    border-bottom: 2px solid rgba(100,100,100,0.8);
+    background: #aaa;
+    /*border-radius:35%;*/
+    border-bottom-left-radius: 150%;
+    border-bottom-right-radius: 150%;
+    z-index: 40
+}
+
+    .can-bottom .shades {
+        width: 100%;
+        height: 100%;
+        border-bottom-left-radius: 150%;
+        border-bottom-right-radius: 150%;
+        z-index: 30
+    }
+
+
+/* === Gradients === */
+.main-full {
+    background: #7c1317; /* Old browsers */
+    background: -moz-linear-gradient(left, #7c1317 0%, #eb1c2c 20%, #eb1c2c 80%, #7c1317 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#7c1317), color-stop(20%,#eb1c2c), color-stop(80%,#eb1c2c), color-stop(100%,#7c1317)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, #7c1317 0%,#eb1c2c 20%,#eb1c2c 80%,#7c1317 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, #7c1317 0%,#eb1c2c 20%,#eb1c2c 80%,#7c1317 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, #7c1317 0%,#eb1c2c 20%,#eb1c2c 80%,#7c1317 100%); /* IE10+ */
+    background: linear-gradient(to right, #7c1317 0%,#eb1c2c 20%,#eb1c2c 80%,#7c1317 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7c1317', endColorstr='#7c1317',GradientType=1 ) /* IE6-9 */
+}
