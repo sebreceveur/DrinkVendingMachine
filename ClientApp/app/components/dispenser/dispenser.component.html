@@ -1,26 +1,36 @@
 <div class="container">
+
     <div class="row">
+
         <div id="dispenser-shape" class="col-sm-9">
 
             <div class="container">
                 <div class="row">
-                    <drinkcan class="col-sm-3">
+
+                    <div *ngFor="let drink of drinkCans">
+                        <app-drinkcan [drinkCan]="drink" (click)="onDrinkSelected(drink)" class=col-sm-3>
+                        </app-drinkcan>
+                    </div>
+
+                    <!--<drinkcan class="col-sm-3">
                     </drinkcan>
                     <drinkcan class="col-sm-3">
                     </drinkcan>
                     <drinkcan class="col-sm-3">
-                    </drinkcan>
+                    </drinkcan>-->
                 </div>
+
             </div>
+
         </div>
 
-        <coinstore class=col-sm-3>
+        <app-coinstore class=col-sm-3>
 
-        </coinstore>
+        </app-coinstore>
     </div>
 
     <div class="row">
-        <coindrawer class=col-sm-9></coindrawer>
+        <app-coindrawer class=col-sm-9></app-coindrawer>
     </div>
 
 </div>

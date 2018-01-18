@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toArray';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 
-import { Coin } from '../coin/coin';
+import { Coin } from '../../model/coin';
 
 export const COINS: Coin[] = [
     { name: '5CHF', value: 5, cssStyle: 'coin-five' },
@@ -18,7 +18,7 @@ export const COINS: Coin[] = [
     ];
 
 @Component({
-    selector: 'coindrawer',
+    selector: 'app-coindrawer',
     templateUrl: './coindrawer.component.html',
     styleUrls: ['./coindrawer.component.css']
 })

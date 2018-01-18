@@ -14,6 +14,8 @@ import { CoinStoreComponent } from './components/coinstore/coinstore.component';
 import { DrinkCanComponent } from './components/drinkcan/drinkcan.component';
 import { CoinDrawerComponent } from './components/coindrawer/coindrawer.component';
 
+import { DispenserService } from './service/dispenser.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -38,7 +40,8 @@ import { CoinDrawerComponent } from './components/coindrawer/coindrawer.componen
             { path: 'dispenser', component: DispenserComponent },
             { path: '**', redirectTo: 'home' }
         ])
-    ]
+    ],
+    providers: [ DispenserService ]
 })
 export class AppModuleShared {
 }

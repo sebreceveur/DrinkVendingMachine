@@ -5,13 +5,13 @@ import 'rxjs/add/operator/toArray';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 
-import { Coin } from '../coin/coin';
+import { Coin } from '../../model/coin';
 
 let list: number[] = [1, 2, 3, 4, 5, 6];
 
 
 @Component({
-    selector: 'coinstore',
+    selector: 'app-coinstore',
     templateUrl: './coinstore.component.html',
     styleUrls: ['./coinstore.component.css']
 })
