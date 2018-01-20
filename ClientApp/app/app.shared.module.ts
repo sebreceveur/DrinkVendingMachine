@@ -28,6 +28,7 @@ import { DispenserService } from './service/dispenser.service';
         DrinkCanComponent,
         CoinDrawerComponent
     ],
+    providers: [ DispenserService ],
     imports: [
         CommonModule,
         HttpModule,
@@ -40,8 +41,8 @@ import { DispenserService } from './service/dispenser.service';
             { path: 'dispenser', component: DispenserComponent },
             { path: '**', redirectTo: 'home' }
         ])
-    ],
-    providers: [ DispenserService ]
+    ]
+
 })
 export class AppModuleShared {
 }
