@@ -8,13 +8,13 @@ import { Observable } from 'rxjs/Observable';
 import { Coin } from '../../model/coin';
 
 export const COINS: Coin[] = [
-    { name: '5CHF', value: 5, cssStyle: 'coin-five' },
-    { name: '2CHF', value: 2, cssStyle: 'coin-two' },
-    { name: '1CHF', value: 1, cssStyle: 'coin-one' },
-    { name: '1/2CHF', value: 0.5, cssStyle: 'coin-half' },
-    { name: '20c', value: 0.20, cssStyle: 'coin-twenty-c' },
-    { name: '10c', value: 0.10, cssStyle: 'coin-ten-c' },
-    { name: '5c', value: 0.05, cssStyle: 'coin-five-c' }
+    { id: 1, value: 5, quantity: 10, capacity: 20, cssStyle: 'coin-five' },
+    { id: 2, value: 2, quantity: 10, capacity: 20, cssStyle: 'coin-two' },
+    { id: 3, value: 1, quantity: 10, capacity: 20, cssStyle: 'coin-one' },
+    { id: 4, value: 0.5, quantity: 10, capacity: 20, cssStyle: 'coin-half' },
+    { id: 5, value: 0.20, quantity: 10, capacity: 20, cssStyle: 'coin-twenty-c' },
+    { id: 6, value: 0.10, quantity: 10, capacity: 20, cssStyle: 'coin-ten-c' },
+    { id: 7, value: 0.05, quantity: 10, capacity: 20, cssStyle: 'coin-five-c' }
     ];
 
 @Component({

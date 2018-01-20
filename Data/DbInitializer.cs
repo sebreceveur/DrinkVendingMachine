@@ -20,9 +20,9 @@ namespace DrinkVendingMachine.Data
             context.SaveChanges();
 
             var drinks = new Drink[]{
-                new Drink{Code="COKE",Description="Coca-Cola",Price=1.20m},
-                new Drink{Code="WAT",Description="Water",Price=1},
-                new Drink{Code="FAN", Description="Fanta", Price=1.6m}
+                new Drink{Code="COKE",Description="Coca-Cola",Price=1.20m, Color="#eb1c2c"},
+                new Drink{Code="WAT",Description="Water",Price=1, Color="#337ab7"},
+                new Drink{Code="FAN", Description="Fanta", Price=1.6m, Color="#eb681c"}
             };
 
             foreach (Drink s in drinks)

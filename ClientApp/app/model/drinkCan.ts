@@ -3,4 +3,5 @@
     code: string;
     description: string;
     price: number;
+    color: string;
 }

@@ -2,31 +2,25 @@
 
     <div class="row">
 
-        <div id="dispenser-shape" class="col-sm-9">
+        <div id="dispenser-shape" class="col-md-9">
 
-            <div class="container">
                 <div class="row">
-
-                    <div *ngFor="let drink of drinkCans">
-                        <app-drinkcan [drinkCan]="drink" (click)="onDrinkSelected(drink)" class=col-sm-3>
+                    <div *ngFor="let drink of drinkCans" class=col-md-3>
+                        <app-drinkcan [drinkCan]="drink" (click)="onDrinkSelected(drink)" >
                         </app-drinkcan>
+                        <div class="price-label">{{drink.price}} CHF / {{drink.code}}</div>
                     </div>
-
-                    <!--<drinkcan class="col-sm-3">
-                    </drinkcan>
-                    <drinkcan class="col-sm-3">
-                    </drinkcan>
-                    <drinkcan class="col-sm-3">
-                    </drinkcan>-->
                 </div>
-
-            </div>
-
         </div>
 
-        <app-coinstore class=col-sm-3>
+        <app-coinstore class="col-md-3">
 
         </app-coinstore>
+
+        <app-instructionscreen class="col-md-3">
+
+        </app-instructionscreen>
+
     </div>
 
     <div class="row">

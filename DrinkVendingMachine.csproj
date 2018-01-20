@@ -29,6 +29,9 @@
     <Folder Include="ClientApp\app\components\coindrawer\" />
     <Folder Include="ClientApp\app\model\" />
     <Folder Include="ClientApp\app\service\" />
+    <Folder Include="API\" />
+    <Folder Include="ClientApp\app\components\instructionscreen\" />
+    <Folder Include="Business\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Model\Item.cs" />

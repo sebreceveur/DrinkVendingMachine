@@ -1,7 +1,18 @@
 #dispenser-shape {
     height: 600px;
     /*background: red;*/
-    border: solid
-    
+    border: solid;
+}
+
+.price-label {
+    height: 50px;
+    width: 100px;
+    background: grey;
+    color: white;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 10px;
 
 }

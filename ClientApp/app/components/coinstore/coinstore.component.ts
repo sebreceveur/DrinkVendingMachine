@@ -1,13 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
-import 'rxjs/add/observable/range';
-import 'rxjs/add/operator/toArray';
-import 'rxjs/Rx';
-import { Observable } from 'rxjs/Observable';
+import { CoinService } from '../../service/coin.service';
 
 import { Coin } from '../../model/coin';
 
-let list: number[] = [1, 2, 3, 4, 5, 6];
 
 
 @Component({
@@ -17,48 +13,99 @@ let list: number[] = [1, 2, 3, 4, 5, 6];
 })
 export class CoinStoreComponent {
 
-    //users = list;
-    //fiveCoins: number;
-    countObservable: Observable<number[]>;
+
+    fiveCoin: Coin;
+    twoCoin: Coin;
+    oneCoin: Coin;
+    fiftyCCoin: Coin;
+    twentyCCoin: Coin;
+    tenCCoin: Coin;
+    fiveCCoin: Coin;
 
 
-    fiveCoins: Coin[] = [];
-    twoCoins: Coin[] = [];
-    oneCoins: Coin[] = [];
-    fiftyCCoins: Coin[] = [];
-    twentyCCoins: Coin[] = [];
-    twnCCoins: Coin[] = [];
-    fiveCCoins: Coin[] = [];
+    // used for convience: *ngFor only takes collection and not numbers
+    fiveCoins: Coin[];
+    twoCoins: Coin[];
+    oneCoins: Coin[];
+    fiftyCCoins: Coin[];
+    twentyCCoins: Coin[];
+    tenCCoins: Coin[];
+    fiveCCoins: Coin[];
 
 
-    InitTestData(): void{
+    counter = Array;
+
+    coins: Coin[];
+
+
+    /*InitTestData(): void{
        let c :  Coin = <Coin>({
                 name: '2CHF',
                 value: 2,
                 cssStyle: 'coin-two'});
         this.twoCoins.push(c);
+    }*/
+
+
+    constructor(private coinService: CoinService) {
+
     }
 
-    AddTwoCoin(): void{
-        let tmp = new Coin();
-        tmp.name = '2CHF';
-        tmp.value = 2;
+    getStorage(): void{
+        this.coinService.currentStorage()
+           .subscribe((coins: Coin[]) => {
 
-        this.twoCoins.push(tmp);
+            coins.forEach( function(this: any, element){
+
+                switch(element.value){
+                    case 5.0 :
+                    this.fiveCoins = element;
+                    this.fiveCoins = new Array<number>(element.quantity);
+                    break; 
+
+                    case 2.0 :
+                    this.twoCoin = element;
+                    this.twoCoins = new Array<number>(element.quantity);
+                    break;
+
+                    case 1.0 :
+                    this.oneCoin = element;
+                    this.oneCoins = new Array<number>(element.quantity);
+                    break;
+
+                    case 0.50 :
+                    this.fiftyCCoin = element;
+                    this.fiftyCCoins = new Array<number>(element.quantity);
+                    break;
+
+                    case 0.20 :
+                    this.twentyCCoin = element;
+                    this.twentyCCoins = new Array<number>(element.quantity);
+                    break;
+
+                    case 0.10 :
+                    this.tenCCoin = element;
+                    this.tenCCoins = new Array<number>(element.quantity);
+                    break;
+
+                    case 0.05 :
+                    this.fiveCCoin = element;
+                    this.fiveCCoins = new Array<number>(element.quantity);
+                    break;
+
+                }
+               
+            }, this);
+
+            this.coins = coins;
+        })
     }
 
-    constructor() {
-       /* this.fiveCoins = 5;
-        this.countObservable = Observable.range(0, this.fiveCoins).toArray();
-
-        this.fiveCoins = 10;*/
-
-        /*InitTestData();*/
-    }
-
+   
 
       ngOnInit() {
-        this.InitTestData();
+
+        this.getStorage();
     }
 
 }

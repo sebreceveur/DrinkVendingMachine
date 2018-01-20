@@ -1,0 +1,15 @@
+﻿<div class="console">
+
+    <button class="clear"
+            (click)="messageService.clear()">
+        clear
+    </button>
+
+    <button (click)="messageService.add('test')">
+        test
+    </button>
+
+    <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+
+</div>

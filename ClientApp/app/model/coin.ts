@@ -1,5 +1,7 @@
 ﻿export class Coin {
-  name: string;
+  id: number;
   value: number;
+  quantity: number;
+  capacity: number;
   cssStyle: string;
 }
