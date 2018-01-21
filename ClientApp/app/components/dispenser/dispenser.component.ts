@@ -1,8 +1,10 @@
 import { Component , OnInit } from '@angular/core';
 
 import { DispenserService } from '../../service/dispenser.service';
+import { MessageService } from '../../service/message.service';
 
 import { DrinkCan } from '../../model/drinkCan';
+import { Coin } from '../../model/coin';
 
 
 @Component({
@@ -13,10 +15,11 @@ import { DrinkCan } from '../../model/drinkCan';
 export class DispenserComponent {
 
     selectedDrinkCan: DrinkCan;
+    coinInserted: Coin[] = []; // coin the user inserts before choosing a drink
 
     drinkCans: DrinkCan[];
 
-    constructor(private dispenserService: DispenserService) {}
+    constructor(private dispenserService: DispenserService, private messageService: MessageService) {}
 
     ngOnInit() {
         this.getDrink();
@@ -28,9 +31,50 @@ export class DispenserComponent {
             .subscribe(drinkcans => this.drinkCans = drinkcans);
     }
 
-
     onDrinkSelected(drink: DrinkCan){
         this.selectedDrinkCan = drink;
+        this.messageService.add("You are choosing "+drink.description);
+    }
+
+    insertCoin(coin: Coin): void{
+        this.coinInserted.push(coin);
+    }
+
+
+    onCoinInserted(coinToInsert: Coin) {
+        this.insertCoin(coinToInsert);
+        let tmp = "";
+
+        this.coinInserted.forEach( function(element ){
+            if(tmp ==""){
+                tmp += ' '+element.value;
+            }
+            else{
+            tmp += ', '+element.value;
+            }
+        } );
+
+        this.messageService.add("You inserted the following coins: "+tmp);
+    }
+
+    onValidateOrder(){
+        this.dispenserService.orderDrink(this.selectedDrinkCan, this.coinInserted)
+            .subscribe(function(this: any, orderConfirmation: boolean){
+                if(orderConfirmation){
+                    this.messageService.add("Here is your drink, envoy!");
+                }
+                else{
+                    this.messageService.add("Something went wrong during order");
+                }
+
+            } );
+    }
+
+    onCancelOrder(): void{
+        this.coinInserted = [];
+        this.selectedDrinkCan = new DrinkCan;
+
+        this.messageService.add("Order cancelled, please take back you money");
     }
 
 }

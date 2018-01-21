@@ -1,9 +1,11 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import 'rxjs/add/observable/range';
 import 'rxjs/add/operator/toArray';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
+
+import { DispenserService } from '../../service/dispenser.service';
 
 import { Coin } from '../../model/coin';
 
@@ -24,13 +26,14 @@ export const COINS: Coin[] = [
 })
 export class CoinDrawerComponent {
 
-    coins = COINS;
-    selectedCoins: Coin[] = [];
+    @Output() onCoinInserted = new EventEmitter<Coin>();
+
+    coins = COINS; // coins displayed in the drawer
     lastCoin: Coin;
 
-  onUseCoin(coin: Coin): void {
-    this.selectedCoins.push(coin);
+    onUseCoin(coin: Coin): void {
     this.lastCoin = coin;
-  }
+    this.onCoinInserted.emit(this.lastCoin); // notify the dispenser (the parent)
+    }
 
 }

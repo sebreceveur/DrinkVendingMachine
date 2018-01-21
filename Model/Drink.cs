@@ -11,8 +11,7 @@ namespace DrinkVendingMachine.Model
         public decimal Price { get; set; }
         public string Color { get; set; }
         //public DateTime ExpirationDate { get; set; }
-        // ...       
-
+        // ...
 
         public Drink()
         {

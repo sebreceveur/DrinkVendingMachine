@@ -22,6 +22,8 @@ namespace DrinkVendingMachine.Model
         public decimal Value { get; set; }
         public int Quantity { get; set; }
         public int Capacity { get; set; }
+        public string cssStyle { get; set; }
+
 
         public CoinStore()
         {

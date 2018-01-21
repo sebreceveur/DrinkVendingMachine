@@ -27,6 +27,27 @@ namespace DrinkVendingMachine.API
             return _context.Drinks.ToList();
         }
 
+        // POST api/values
+        [HttpPost]
+        public bool Post([FromBody]Order order)
+        {
+            if( order.selectedDrinkCan != null && order.selectedDrinkCan.ID > 0){
+                CatalogItem item = _context.CatalogItems.Where((arg) => arg.DrinkID == order.selectedDrinkCan.ID).First();
+
+                //order.coinInserted
+
+                if(item.Quantity > 0 ){
+                    item.Quantity--;
+                    _context.CatalogItems.Update(item);
+                    _context.SaveChanges();
+                    return true;
+                }
+            }
+
+           
+            return true;
+        }
+
         //// GET: api/values
         //[HttpGet]
         //public IEnumerable<string> Get()

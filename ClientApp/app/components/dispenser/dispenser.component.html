@@ -21,10 +21,13 @@
 
         </app-instructionscreen>
 
+        <button (click)="onValidateOrder()">Validate</button>
+        <button (click)="onCancelOrder()">Cancel</button>
+
     </div>
 
     <div class="row">
-        <app-coindrawer class=col-sm-9></app-coindrawer>
+        <app-coindrawer (onCoinInserted)="onCoinInserted($event)" class=col-sm-9></app-coindrawer>
     </div>
 
 </div>

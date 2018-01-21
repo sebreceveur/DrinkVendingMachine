@@ -4,4 +4,5 @@
   quantity: number;
   capacity: number;
   cssStyle: string;
+
 }

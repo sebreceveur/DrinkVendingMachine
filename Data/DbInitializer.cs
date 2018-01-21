@@ -49,13 +49,13 @@ namespace DrinkVendingMachine.Data
            context.SaveChanges();
 
             var coins = new CoinStore[]{
-                new CoinStore{ Value = Coin.Five, Quantity = 10, Capacity = 20},
+                new CoinStore{ Value = Coin.Five, Quantity = 0, Capacity = 20},
                 new CoinStore{ Value = Coin.Two, Quantity = 10, Capacity = 20},
-                new CoinStore{ Value = Coin.One, Quantity = 20, Capacity = 20},
-                new CoinStore{ Value = Coin.FiftyCent, Quantity = 10, Capacity = 20},
-                new CoinStore{ Value = Coin.TwentyCent, Quantity = 15, Capacity = 20},
-                new CoinStore{ Value = Coin.TenCent, Quantity = 15, Capacity = 20},
-                new CoinStore{ Value = Coin.FiveCent, Quantity = 20, Capacity = 20},
+                new CoinStore{ Value = Coin.One, Quantity = 15, Capacity = 20},
+                new CoinStore{ Value = Coin.FiftyCent, Quantity = 20, Capacity = 20},
+                new CoinStore{ Value = Coin.TwentyCent, Quantity = 12, Capacity = 20},
+                new CoinStore{ Value = Coin.TenCent, Quantity = 12, Capacity = 20},
+                new CoinStore{ Value = Coin.FiveCent, Quantity = 10, Capacity = 20},
             };
 
             foreach(var c in coins){
