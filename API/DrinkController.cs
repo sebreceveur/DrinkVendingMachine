@@ -43,7 +43,8 @@ namespace DrinkVendingMachine.API
         [HttpPost]
         public Delivery Post([FromBody]Order order)
         {
-            if (order != null && order.selectedDrinkCan != null && order.selectedDrinkCan.ID > 0)
+            if (order != null && order.selectedDrinkCan != null &&
+                    order.selectedDrinkCan.ID > 0 && order.coinInserted!=null && order.coinInserted.Count() > 0)
             {
                 var giveBackMoney = new List<decimal>();
                 var toLoad = new List<CoinStore>();
