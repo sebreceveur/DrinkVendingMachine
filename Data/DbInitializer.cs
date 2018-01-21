@@ -15,14 +15,11 @@ namespace DrinkVendingMachine.Data
                 return;   // DB has been seeded
             }
 
-            var drinkStore = new DrinkStore { };
-            context.DrinkStore.Add(drinkStore);
-            context.SaveChanges();
-
             var drinks = new Drink[]{
                 new Drink{Code="COKE",Description="Coca-Cola",Price=1.20m, Color="#eb1c2c"},
                 new Drink{Code="WAT",Description="Water",Price=1, Color="#337ab7"},
-                new Drink{Code="FAN", Description="Fanta", Price=1.6m, Color="#eb681c"}
+                new Drink{Code="FAN", Description="Fanta", Price=1.6m, Color="#eb681c"},
+                new Drink{Code="RED", Description="Red Bull", Price=2.0m, Color="#337ab7"}
             };
 
             foreach (Drink s in drinks)

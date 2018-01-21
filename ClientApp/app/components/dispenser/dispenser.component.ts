@@ -63,7 +63,6 @@ export class DispenserComponent {
         var self = this;
         this.dispenserService.orderDrink(this.selectedDrinkCan, this.coinInserted)
             .subscribe(function(orderConfirmation: boolean){
-                debugger;
                 if(orderConfirmation){
                     self.messageService.add("Here is your drink, envoy!");
                     self.refreshToggle = self.refreshToggle ? false: true;
@@ -82,7 +81,6 @@ export class DispenserComponent {
     onCancelOrder(): void{
         this.coinInserted = [];
         this.selectedDrinkCan = new DrinkCan;
-
         this.messageService.add("Order cancelled, please take back you money");
     }
 

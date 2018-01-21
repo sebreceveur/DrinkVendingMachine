@@ -44,7 +44,6 @@ export class CoinStoreComponent {
               let changedProp = changes[propName];
               let to = JSON.stringify(changedProp.currentValue);
               if (!changedProp.isFirstChange()) {
-                debugger;
                 this.getStorage(); 
               }
 
@@ -63,7 +62,6 @@ export class CoinStoreComponent {
            .subscribe((coins: Coin[]) => {
 
             coins.forEach( function(this: any, element){
-                //debugger;
                 switch(element.value){
                     case 5.0 :
                     this.fiveCoin = element;
@@ -107,14 +105,5 @@ export class CoinStoreComponent {
             this.coins = coins;
         })
     }
-
-
-    AddTwoCoin(): void{
-        let tmp = new Coin();
-        tmp.value = 2;
-
-        this.twoCoins.push(tmp);
-    }
-
 
 }

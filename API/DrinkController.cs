@@ -27,7 +27,52 @@ namespace DrinkVendingMachine.API
         [HttpGet]
         public IEnumerable<Drink> Get()
         {
-            return _context.Drinks.ToList();
+            //return _context.Drinks.ToList();
+
+            var catalog = _context.CatalogItems.ToList();
+
+
+            //var tmp1 = _context.Drinks.Join(catalog, (arg1) => arg1.ID, (arg2) => arg2.DrinkID, (Drink arg1, CatalogItem arg2) => new { arg1, arg2 });
+            //var tmp2 = tmp1.Where((arg) => arg.arg2.Quantity > 0);
+            //var tmp3 = tmp2.Select((arg1, arg2) => arg1.arg1);
+
+            //IEnumerable<Drink> tmp = _context.Drinks.Join(catalog, (arg1) => arg1.ID, (arg2) => arg2.DrinkID, (Drink arg1, CatalogItem arg2) => new { arg1, arg2 })
+            //.Where((arg1, arg2) => arg1.arg2.Quantity > 0)
+            //.Select((arg1, arg2) => arg1.arg1);
+
+            //return tmp3;
+            //.Where(((Drink, CatalogItem) arg) => arg.Item2.Quantity > 0).Select(((Drink, CatalogItem) arg) => arg.Item1);
+
+
+
+            var drinks = (from d in this._context.Drinks
+                          join cat in this._context.CatalogItems
+                          on d.ID equals cat.DrinkID
+                          where cat.Quantity > 0
+                          select new Drink
+                          {
+                            ID = d.ID,
+                            Code = d.Code,
+                            Description = d.Description,
+                            Price = d.Price,
+                            Color = d.Color
+                          }).ToList();
+                         
+            return drinks;
+
+            //var person = (from p in db.People
+                          //join e in db.EmailAddresses
+                          //on p.BusinessEntityID equals e.BusinessEntityID
+                          //where p.FirstName == "KEN"
+                          //select new
+                          //{
+                          //    ID = p.BusinessEntityID,
+                          //    FirstName = p.FirstName,
+                          //    MiddleName = p.MiddleName,
+                          //    LastName = p.LastName,
+                          //    EmailID = e.EmailAddress1
+                          //}).ToList();
+
         }
 
         // POST api/values
