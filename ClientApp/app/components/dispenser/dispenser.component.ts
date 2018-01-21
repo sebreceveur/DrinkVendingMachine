@@ -19,6 +19,8 @@ export class DispenserComponent {
 
     drinkCans: DrinkCan[];
 
+    refreshToggle: boolean;
+
     constructor(private dispenserService: DispenserService, private messageService: MessageService) {}
 
     ngOnInit() {
@@ -58,13 +60,20 @@ export class DispenserComponent {
     }
 
     onValidateOrder(){
+        var self = this;
         this.dispenserService.orderDrink(this.selectedDrinkCan, this.coinInserted)
-            .subscribe(function(this: any, orderConfirmation: boolean){
+            .subscribe(function(orderConfirmation: boolean){
+                debugger;
                 if(orderConfirmation){
-                    this.messageService.add("Here is your drink, envoy!");
+                    self.messageService.add("Here is your drink, envoy!");
+                    self.refreshToggle = self.refreshToggle ? false: true;
+
+                    //remove custom choice, for the next client
+                    self.selectedDrinkCan = new DrinkCan;
+                    self.coinInserted = [];
                 }
                 else{
-                    this.messageService.add("Something went wrong during order");
+                    self.messageService.add("Something went wrong during order");
                 }
 
             } );

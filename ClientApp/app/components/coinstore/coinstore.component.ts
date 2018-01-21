@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 
 import { CoinService } from '../../service/coin.service';
 
@@ -13,6 +13,7 @@ import { Coin } from '../../model/coin';
 })
 export class CoinStoreComponent {
 
+    @Input() refresh: boolean;
 
     fiveCoin: Coin;
     twoCoin: Coin;
@@ -21,7 +22,6 @@ export class CoinStoreComponent {
     twentyCCoin: Coin;
     tenCCoin: Coin;
     fiveCCoin: Coin;
-
 
     // used for convience: *ngFor only takes collection and not numbers
     fiveCoins: Coin[];
@@ -32,34 +32,41 @@ export class CoinStoreComponent {
     tenCCoins: Coin[];
     fiveCCoins: Coin[];
 
-
-    counter = Array;
-
     coins: Coin[];
-
-
-    /*InitTestData(): void{
-       let c :  Coin = <Coin>({
-                name: '2CHF',
-                value: 2,
-                cssStyle: 'coin-two'});
-        this.twoCoins.push(c);
-    }*/
-
 
     constructor(private coinService: CoinService) {
 
     }
+
+    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+
+        for (let propName in changes) {
+              let changedProp = changes[propName];
+              let to = JSON.stringify(changedProp.currentValue);
+              if (!changedProp.isFirstChange()) {
+                debugger;
+                this.getStorage(); 
+              }
+
+          }
+
+    }
+
+    ngOnInit() {
+
+        this.getStorage();
+    }
+
 
     getStorage(): void{
         this.coinService.currentStorage()
            .subscribe((coins: Coin[]) => {
 
             coins.forEach( function(this: any, element){
-
+                //debugger;
                 switch(element.value){
                     case 5.0 :
-                    this.fiveCoins = element;
+                    this.fiveCoin = element;
                     this.fiveCoins = new Array<number>(element.quantity);
                     break; 
 
@@ -101,11 +108,13 @@ export class CoinStoreComponent {
         })
     }
 
-   
 
-      ngOnInit() {
+    AddTwoCoin(): void{
+        let tmp = new Coin();
+        tmp.value = 2;
 
-        this.getStorage();
+        this.twoCoins.push(tmp);
     }
+
 
 }

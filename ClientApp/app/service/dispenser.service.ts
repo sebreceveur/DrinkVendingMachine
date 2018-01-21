@@ -28,20 +28,8 @@ export class DispenserService {
     orderDrink(selectedDrinkCan: DrinkCan, coinInserted: Coin[]): Observable<boolean>{
 
         var headers = new HttpHeaders();
-headers.append('Content-Type', 'application/json');
-        /*let body = new HttpParams();
-        body.set('coinInserted', coinInserted.toString());
-        //body.set('selectedDrinkCan', selectedDrinkCan.toString());
-
-
-        coinInserted.forEach(id => {
-          body = body.append('id[]', id);
-        });*/
-
+        headers.append('Content-Type', 'application/json');
         let body = JSON.stringify({ coinInserted, selectedDrinkCan} );
-        //body = body + ", " + JSON.stringify(selectedDrinkCan);
-
-        debugger;
         return this.http.post<boolean>(this.drinkCansUrl, body, httpOptions );
 
     }

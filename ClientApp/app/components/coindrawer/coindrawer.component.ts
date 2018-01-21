@@ -32,8 +32,8 @@ export class CoinDrawerComponent {
     lastCoin: Coin;
 
     onUseCoin(coin: Coin): void {
-    this.lastCoin = coin;
-    this.onCoinInserted.emit(this.lastCoin); // notify the dispenser (the parent)
+        this.lastCoin = coin;
+        this.onCoinInserted.emit(this.lastCoin); // notify the dispenser (the parent)
     }
 
 }
