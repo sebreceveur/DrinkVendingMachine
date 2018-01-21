@@ -10,6 +10,7 @@ import { DrinkCan } from '../../model/drinkCan';
 export class DrinkCanComponent {
 
   @Input() drinkCan: DrinkCan;
+  @Input() color: string;
 
 
 }

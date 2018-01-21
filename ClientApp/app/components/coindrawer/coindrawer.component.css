@@ -10,13 +10,41 @@
 .coin {
     width: 80px;
     height: 80px;
-    /*background: grey;*/
-    border: 1px solid black;
+    background: lightgrey;
+    border: 3px solid #555;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
     display: inline-block;
+    transition: all .2s ease-in-out;
 }
+
+.coin-gold{
+    background: gold !important;
+}
+
+.my-list{
+    list-style-type: none;
+}
+
+.drawer {
+    margin-top: 30px;
+    list-style-type: none;
+}
+
+.coin-value {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 78px;
+    font-size: 15px;
+}
+
+.drawer li {
+    margin-right: 50px;
+    padding: .3em 0;
+    border-radius: 4px
+}
+
 
 .flex-container {
     display: flex;
@@ -48,11 +76,15 @@
 
 
 .coin-five {
-    transform: scale(1.3);
+    transform: scale(1.35);
+}
+
+.coin-five:hover {
+    transform: scale(1.48)
 }
 
 .coin-two {
-    transform: scale(1.05)
+    transform: scale(1.18)
 }
 
 .coin-one {
@@ -60,7 +92,7 @@
 }
 
 .coin-half{
-    transform: scale(0.60);
+    transform: scale(0.78);
 }
 
 .coin-twenty-c{
@@ -68,10 +100,38 @@
 }
 
 .coin-ten-c {
-    transform: scale(0.80);
+    transform: scale(0.82);
 }
 
 .coin-five-c {
-    transform: scale(0.60);
+    transform: scale(0.74);
 
+}
+
+
+/*hover*/
+
+.coin-two:hover {
+    transform: scale(1.30)
+}
+
+
+.coin-one:hover {
+    transform: scale(1.1)
+}
+
+.coin-half:hover {
+    transform: scale(0.85)
+}
+
+.coin-twenty-c:hover {
+    transform: scale(1)
+}
+
+.coin-ten-c:hover {
+    transform: scale(0.9)
+}
+
+.coin-five-c:hover {
+    transform: scale(0.81)
 }

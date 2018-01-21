@@ -2,6 +2,7 @@
     width: 310px;
     border: 1px solid black;
     height: 300px;
+    margin: 10px 10px 0px 10px;
 }
 
 .coin {
@@ -24,11 +25,14 @@
 .flex-head {
     background-color: #f1f1f1 !important;
     margin: 5px !important;
-    padding: 15px !important;
+    padding: 15px 0 !important;
+    /* padding-bottom: 15px !important; */
     font-size: 10px !important;
-    width: 25px !important;
-    height: 10px !important;
+    /* width: 25px !important; */
+    /* height: 10px !important; */
+    text-align: center
 }
+
 
 .flex-container > div {
     background-color: gold;

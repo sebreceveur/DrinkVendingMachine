@@ -19,7 +19,7 @@ namespace DrinkVendingMachine.Data
                 new Drink{Code="COKE",Description="Coca-Cola",Price=1.20m, Color="#eb1c2c"},
                 new Drink{Code="WAT",Description="Water",Price=1, Color="#337ab7"},
                 new Drink{Code="FAN", Description="Fanta", Price=1.6m, Color="#eb681c"},
-                new Drink{Code="RED", Description="Red Bull", Price=2.0m, Color="#337ab7"}
+                new Drink{Code="RED", Description="Red Bull", Price=2.0m, Color="#9d9d9d"}
             };
 
             foreach (Drink s in drinks)
@@ -37,6 +37,7 @@ namespace DrinkVendingMachine.Data
                 new CatalogItem{ DrinkID = 1, Quantity = 20},
                 new CatalogItem{ DrinkID = 2, Quantity = 10},
                 new CatalogItem{ DrinkID = 3, Quantity = 15},
+                new CatalogItem{ DrinkID = 4, Quantity = 5 }
             };           
 
             foreach (CatalogItem i in items)

@@ -5,10 +5,6 @@
         clear
     </button>
 
-    <button (click)="messageService.add('test')">
-        test
-    </button>
-
     <div *ngFor='let message of messageService.messages'> {{message}} </div>
 
 
