@@ -3,8 +3,9 @@ import { Component , OnInit } from '@angular/core';
 import { DispenserService } from '../../service/dispenser.service';
 import { MessageService } from '../../service/message.service';
 
-import { DrinkCan } from '../../model/drinkCan';
 import { Coin } from '../../model/coin';
+import { Delivery } from '../../model/delivery';
+import { DrinkCan } from '../../model/drinkCan';
 
 
 @Component({
@@ -62,14 +63,19 @@ export class DispenserComponent {
     onValidateOrder(){
         var self = this;
         this.dispenserService.orderDrink(this.selectedDrinkCan, this.coinInserted)
-            .subscribe(function(orderConfirmation: boolean){
-                if(orderConfirmation){
-                    self.messageService.add("Here is your drink, envoy!");
+            .subscribe(function(delivery: Delivery){
+                if(delivery != null && delivery.drink != null){
+                    self.messageService.add(`Here is your ${delivery.drink.description}, enjoy!`);
+                    if(delivery.coins.length > 0 ){
+                        self.messageService.add(`Here is your change ${delivery.coins}`);
+                    }
+
                     self.refreshToggle = self.refreshToggle ? false: true;
 
                     //remove custom choice, for the next client
                     self.selectedDrinkCan = new DrinkCan;
                     self.coinInserted = [];
+                    self.getDrink();
                 }
                 else{
                     self.messageService.add("Something went wrong during order");

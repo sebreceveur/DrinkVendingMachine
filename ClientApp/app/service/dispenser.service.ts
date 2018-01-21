@@ -6,7 +6,9 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { Coin } from '../model/coin';
+import { Delivery } from '../model/delivery';
 import { DrinkCan } from '../model/drinkCan';
+
 
 
 const httpOptions = {
@@ -25,12 +27,12 @@ export class DispenserService {
         return this.http.get<DrinkCan[]>(this.drinkCansUrl);
     }
 
-    orderDrink(selectedDrinkCan: DrinkCan, coinInserted: Coin[]): Observable<boolean>{
+    orderDrink(selectedDrinkCan: DrinkCan, coinInserted: Coin[]): Observable<Delivery>{
 
         var headers = new HttpHeaders();
         headers.append('Content-Type', 'application/json');
         let body = JSON.stringify({ coinInserted, selectedDrinkCan} );
-        return this.http.post<boolean>(this.drinkCansUrl, body, httpOptions );
+        return this.http.post<Delivery>(this.drinkCansUrl, body, httpOptions );
 
     }
 
