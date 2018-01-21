@@ -18,8 +18,8 @@ namespace DrinkVendingMachine.Data.Provider.Impl
 
         public IEnumerable<Drink> GetDrinks()
         {
-            var drinks = (from d in this._context.Drinks
-                          join cat in this._context.CatalogItems
+            var drinks = (from d in this._context.Drinks.ToList()
+                          join cat in this._context.CatalogItems.ToList()
                           on d.ID equals cat.DrinkID
                           where cat.Quantity > 0
                           select new Drink

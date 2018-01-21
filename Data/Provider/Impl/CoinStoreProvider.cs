@@ -56,60 +56,64 @@ namespace DrinkVendingMachine.Data.Provider.Impl
 
         public List<decimal> GetAvailableMoney(){
             var storage = _context.Coins.ToList();
-            IEnumerable<decimal> moneyAvailable = new List<decimal>();
+            List<decimal> moneyAvailable = new List<decimal>();
 
-            storage.ForEach((obj) =>
-            {
-                switch (obj.Value)
+            foreach(var item in storage){
+                switch (item.Value)
                 {
                     case Coin.Five:
-                        for (int i = 0; i < obj.Quantity; i++)
+                        for (int i = 0; i < item.Quantity; i++)
                         {
                             moneyAvailable.Add(Coin.Five);
                         }
                         break;
                     case Coin.Two:
-                        for (int i = 0; i < obj.Quantity; i++)
+                        for (int i = 0; i < item.Quantity; i++)
                         {
                             moneyAvailable.Add(Coin.Two);
                         }
                         break;
 
                     case Coin.One:
-                        for (int i = 0; i < obj.Quantity; i++)
+                        for (int i = 0; i < item.Quantity; i++)
                         {
                             moneyAvailable.Add(Coin.One);
                         }
                         break;
                     case Coin.FiftyCent:
-                        for (int i = 0; i < obj.Quantity; i++)
+                        for (int i = 0; i < item.Quantity; i++)
                         {
                             moneyAvailable.Add(Coin.FiftyCent);
                         }
                         break;
 
                     case Coin.TwentyCent:
-                        for (int i = 0; i < obj.Quantity; i++)
+                        for (int i = 0; i < item.Quantity; i++)
                         {
                             moneyAvailable.Add(Coin.TwentyCent);
                         }
                         break;
 
                     case Coin.TenCent:
-                        for (int i = 0; i < obj.Quantity; i++)
+                        for (int i = 0; i < item.Quantity; i++)
                         {
                             moneyAvailable.Add(Coin.TenCent);
                         }
                         break;
 
                     case Coin.FiveCent:
-                        for (int i = 0; i < obj.Quantity; i++)
+                        for (int i = 0; i < item.Quantity; i++)
                         {
                             moneyAvailable.Add(Coin.FiveCent);
                         }
                         break;
                 }
-            });
+            }
+
+            //storage.ForEach((obj) =>
+            //{
+                
+            //});
 
             return moneyAvailable;
 

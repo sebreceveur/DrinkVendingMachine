@@ -30,18 +30,19 @@ namespace DrinkVendingMachine
         {
             // framework services;
             services.AddDbContext<DataBaseContext>(options =>
-                                                   options.UseSqlite("Data Source=VendingMachine.db"));
+                                                   options.UseSqlite("Data Source=VendingMachine.db")
+                                                   ,ServiceLifetime.Transient);
             services.AddMvc();
 
             // Register application services.
 
             //providers
-            services.AddSingleton<ICatalogItemProvider, CatalogItemProvider>();
-            services.AddSingleton<ICoinStoreProvider, CoinStoreProvider>();
-            services.AddSingleton<IDrinkProvider, DrinkProvider>();
+            services.AddTransient<ICatalogItemProvider, CatalogItemProvider>();
+            services.AddTransient<ICoinStoreProvider, CoinStoreProvider>();
+            services.AddTransient<IDrinkProvider, DrinkProvider>();
 
             //business
-            services.AddSingleton<IMoneyHandler, MoneyHandler>();
+            services.AddTransient<IMoneyHandler, MoneyHandler>();
 
            
 

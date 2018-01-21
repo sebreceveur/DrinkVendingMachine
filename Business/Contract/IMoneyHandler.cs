@@ -8,7 +8,7 @@ namespace DrinkVendingMachine.Business.Contract
     {
         bool AreCoinsStorable(List<decimal> coins, List<CoinStore> storage);
 
-        IEnumerable<decimal> GiveBackMoney(decimal itemPrice, decimal givenMoney, IEnumerable<decimal> givenBackMoney, List<decimal> moneyAvailable);
+        List<decimal> GiveBackMoney(decimal itemPrice, decimal givenMoney, List<decimal> givenBackMoney, List<decimal> moneyAvailable);
     }
 
 }
