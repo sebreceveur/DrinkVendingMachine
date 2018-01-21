@@ -33,9 +33,10 @@ namespace DrinkVendingMachine.Controllers
             //var tmp = new List<decimal>();
             //GiveBackMoney(1.20m, 5, tmp);
 
-
             var tmp = new List<decimal>();
-            GiveBackMoney(1.20m, 5, tmp, new List<decimal>() { 5, 5, 1, 1, 1, 0.5m, 0.5m, 0.20m, 0.20m, 0.10m, 0.10m });
+            GiveBackMoney(1.20m, 5, tmp, new List<decimal>() { 5, 5, 1, 1, 0.5m, 0.5m, 0.20m, 0.20m, 0.20m, 0.20m, 0.20m, 0.20m, 0.20m, 0.10m, 0.10m, 0.10m, 0.10m, 0.10m, 0.10m });
+
+            decimal total = tmp.Sum();
 
             return View();
         }
@@ -59,45 +60,45 @@ namespace DrinkVendingMachine.Controllers
             {
                 moneyAvailable.Remove(moneyAvailable.Where(value => value == Coin.Five).First());
                 givenBackMoney.Add(Coin.Five);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
 
             }
             else if (givenMoney - itemPrice - Coin.Two - tmp >= 0 && moneyAvailable.Where(value => value == Coin.Two).Any())
             {
                 moneyAvailable.Remove(moneyAvailable.Where(value => value == Coin.Two).First());
                 givenBackMoney.Add(Coin.Two);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
             }
             else if (givenMoney - itemPrice - Coin.One - tmp >= 0 && moneyAvailable.Where(value => value == Coin.One).Any())
             {
                 moneyAvailable.Remove(moneyAvailable.Where(value => value == Coin.One).First());
                 givenBackMoney.Add(Coin.One);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
             }
             else if (givenMoney - itemPrice - Coin.FiftyCent - tmp >= 0 && moneyAvailable.Where(value => value == Coin.FiftyCent).Any())
             {
                 moneyAvailable.Remove(moneyAvailable.Where(value => value == Coin.FiftyCent).First());
                 givenBackMoney.Add(Coin.FiftyCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
             }
             else if (givenMoney - itemPrice - Coin.TwentyCent - tmp >= 0 && moneyAvailable.Where(value => value == Coin.TwentyCent).Any())
             {
                 moneyAvailable.Remove(moneyAvailable.Where(value => value == Coin.TwentyCent).First());
                 givenBackMoney.Add(Coin.TwentyCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
             }
 
             else if (givenMoney - itemPrice - Coin.TenCent - tmp >= 0 && moneyAvailable.Where(value => value == Coin.TenCent).Any())
             {
                 moneyAvailable.Remove(moneyAvailable.Where(value => value == Coin.TenCent).First());
                 givenBackMoney.Add(Coin.TenCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
             }
             else if (givenMoney - itemPrice - Coin.FiveCent - tmp >= 0 && moneyAvailable.Where(value => value == Coin.FiveCent).Any())
             {
                 moneyAvailable.Remove(moneyAvailable.Where(value => value == Coin.FiveCent).First());
                 givenBackMoney.Add(Coin.FiveCent);
-                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney);
+                return GiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
             }
 
             else
