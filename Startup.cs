@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DrinkVendingMachine.Business.Contract;
+using DrinkVendingMachine.Business.Impl;
 using DrinkVendingMachine.Data;
+using DrinkVendingMachine.Data.Provider.Contract;
+using DrinkVendingMachine.Data.Provider.Impl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -24,12 +28,24 @@ namespace DrinkVendingMachine
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // framework services;
             services.AddDbContext<DataBaseContext>(options =>
-                                                   options.UseSqlite("Data Source=VendingMachine.db"));                                        
-        //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+                                                   options.UseSqlite("Data Source=VendingMachine.db"));
             services.AddMvc();
+
+            // Register application services.
+
+            //providers
+            services.AddSingleton<ICatalogItemProvider, CatalogItemProvider>();
+            services.AddSingleton<ICoinStoreProvider, CoinStoreProvider>();
+            services.AddSingleton<IDrinkProvider, DrinkProvider>();
+
+            //business
+            services.AddSingleton<IMoneyHandler, MoneyHandler>();
+
+           
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

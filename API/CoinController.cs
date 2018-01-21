@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DrinkVendingMachine.Data;
+using DrinkVendingMachine.Data.Provider.Contract;
 using DrinkVendingMachine.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,17 +14,19 @@ namespace DrinkVendingMachine.API
     [Route("api/[controller]")]
     public class CoinController : Controller
     {
-        private readonly DataBaseContext _context;
-        public CoinController(DataBaseContext context)
+
+        private readonly ICoinStoreProvider _coinProvider;
+
+        public CoinController(ICoinStoreProvider coinProvider)
         {
-            _context = context;
+            _coinProvider = coinProvider;
         }
 
         // GET: api/values
         [HttpGet]
         public IEnumerable<CoinStore> Get()
         {
-            return _context.Coins.ToList();
+            return _coinProvider.GetCoins();
         }
 
     }

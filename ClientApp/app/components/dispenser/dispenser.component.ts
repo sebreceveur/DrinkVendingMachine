@@ -62,7 +62,9 @@ export class DispenserComponent {
 
     onValidateOrder(){
         var self = this;
-        this.dispenserService.orderDrink(this.selectedDrinkCan, this.coinInserted)
+
+        if( this.coinInserted != null && this.coinInserted.length > 0 ){
+                    this.dispenserService.orderDrink(this.selectedDrinkCan, this.coinInserted)
             .subscribe(function(delivery: Delivery){
                 if(delivery != null && delivery.drink != null){
                     self.messageService.add(`Here is your ${delivery.drink.description}, enjoy!`);
@@ -82,6 +84,12 @@ export class DispenserComponent {
                 }
 
             } );
+        }
+        else{
+            self.messageService.add("You first need to insert coin(s) to order a drink!")
+        }
+
+
     }
 
     onCancelOrder(): void{

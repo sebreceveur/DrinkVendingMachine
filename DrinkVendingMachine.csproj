@@ -32,6 +32,11 @@
     <Folder Include="API\" />
     <Folder Include="ClientApp\app\components\instructionscreen\" />
     <Folder Include="Business\" />
+    <Folder Include="Business\Contract\" />
+    <Folder Include="Business\Impl\" />
+    <Folder Include="Data\Provider\" />
+    <Folder Include="Data\Provider\Contract\" />
+    <Folder Include="Data\Provider\Impl\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Model\Item.cs" />
