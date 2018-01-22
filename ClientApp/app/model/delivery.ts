@@ -3,4 +3,5 @@
 export class Delivery {
     coins: number[];
     drink: DrinkCan;
+    errorMessage: string;
 }

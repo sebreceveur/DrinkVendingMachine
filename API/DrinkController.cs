@@ -47,14 +47,11 @@ namespace DrinkVendingMachine.API
                     order.selectedDrinkCan.ID > 0 && order.coinInserted!=null && order.coinInserted.Count() > 0)
             {
                 var giveBackMoney = new List<decimal>();
-                var toLoad = new List<CoinStore>();
+                var storage = _coinStoreProvider.GetCoins();
 
-                // TODO implement AreCoinsStorable
-                if (_moneyHandler.AreCoinsStorable(order.coinInserted.Select(c => c.Value).ToList(), toLoad))
+                if (_moneyHandler.AreCoinsStorable(order.coinInserted.Select(c => c.Value).ToList(), storage.ToList()))
                 {
-
                     List<decimal> moneyAvailable = _coinStoreProvider.GetAvailableMoney();
-
                     _moneyHandler.GiveBackMoney(order.selectedDrinkCan.Price, order.coinInserted.Sum(coin => coin.Value), giveBackMoney, moneyAvailable);
 
                     _coinStoreProvider.Update(order.coinInserted);
@@ -68,9 +65,16 @@ namespace DrinkVendingMachine.API
                     };
                 }
 
+                return new Delivery()
+                {
+                    ErrorMessage = "The capacity of coins of the machine has reached its maximum, we can't process your order"
+                };
+
             }
 
-            return null;
+            return new Delivery(){
+                ErrorMessage = "No coins have been inserted nor drink selected"
+            };
         }
     }
 }

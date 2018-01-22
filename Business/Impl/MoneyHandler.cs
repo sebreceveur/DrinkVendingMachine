@@ -23,8 +23,21 @@ namespace DrinkVendingMachine.Business.Impl
         }
 
         public bool AreCoinsStorable(List<decimal> coins, List<CoinStore> storage){
-            // TODO AreCoinsStorable
-            return true;
+            bool capacityUnReached = true;
+
+            if(storage == null || storage.Count() < 1){
+                return false;
+            }
+
+            foreach(var coin in coins){
+                var tmp = storage.Where(arg => arg.Value == coin).First();
+                if( tmp.Quantity + 1 > tmp.Capacity){
+                    // capacity reached for this coin
+                    return capacityUnReached = false;
+                }
+            }
+
+            return capacityUnReached;
         }
 
         public List<decimal> GiveBackMoney(decimal itemPrice, decimal givenMoney, List<decimal> givenBackMoney, List<decimal> moneyAvailable){

@@ -5,7 +5,7 @@ export class MessageService {
   messages: string[] = [];
 
   add(message: string) {
-    if(this.messages.length > 9){
+    if(this.messages.length > 8){
         debugger;
         let tmp = this.messages.slice(1, this.messages.length);
 

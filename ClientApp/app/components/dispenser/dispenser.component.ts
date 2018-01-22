@@ -66,7 +66,7 @@ export class DispenserComponent {
         if( this.coinInserted != null && this.coinInserted.length > 0 ){
                     this.dispenserService.orderDrink(this.selectedDrinkCan, this.coinInserted)
             .subscribe(function(delivery: Delivery){
-                if(delivery != null && delivery.drink != null){
+                if(delivery != null && delivery.drink != null && delivery.errorMessage == null){
                     self.messageService.add(`Here is your ${delivery.drink.description}, enjoy!`);
                     if(delivery.coins.length > 0 ){
                         self.messageService.add(`Here is your change ${delivery.coins}`);
@@ -79,8 +79,19 @@ export class DispenserComponent {
                     self.coinInserted = [];
                     self.getDrink();
                 }
+                else if(delivery != null && delivery.errorMessage != null ){
+                    self.messageService.add(delivery.errorMessage);
+                    //remove custom choice, for the next client
+                    self.selectedDrinkCan = new DrinkCan;
+                    self.coinInserted = [];
+                    self.getDrink();
+                }
                 else{
                     self.messageService.add("Something went wrong during order");
+                    //remove custom choice, for the next client
+                    self.selectedDrinkCan = new DrinkCan;
+                    self.coinInserted = [];
+                    self.getDrink();
                 }
 
             } );
