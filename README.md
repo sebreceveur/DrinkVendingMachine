@@ -1,6 +1,7 @@
-# Project Title
+# Drink Vending Machine
 
-One Paragraph of project description goes here
+This application is a practical technical exercise, representing a vending machine on a web application. 
+The purpose of this exercise is to use Angular and the .NET Core framework.
 
 ## Getting Started
 
@@ -8,81 +9,31 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You need to have Visual Studio or Visual studio for mac.
+
+Download and install Visual Studio.
+
+Make sure you have .NET CORE, in visual studio installation (Windows) or Download it on here: 
 
 ```
-Give examples
+https://www.microsoft.com/net/download/macos
 ```
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+You will also need npm
 
 ```
-Give the example
+https://docs.npmjs.com/cli/install
 ```
 
-And repeat
+### Installing / Launch
 
-```
-until finished
-```
+Dowload / clone this repository to you local machine and open the project with Visual Studio.
 
-End with an example of getting some data out of the system or using it for a little demo
+Build it, but be patient, Visual Studio will resolve the dependency since it is the first build.
 
-## Running the tests
+You can now run it, since it is set up with IIS express, you just have to run it.
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
+* **Sebastien Receveur** *
