@@ -7,6 +7,34 @@ using DrinkVendingMachine.Model;
 
 namespace DrinkVendingMachine.Business.Impl
 {
+
+
+/// <summary>
+/// The main <c>Math</c> class.
+/// Contains all methods for performing basic math functions.
+/// <list type="bullet">
+/// <item>
+/// <term>Add</term>
+/// <description>Addition Operation</description>
+/// </item>
+/// <item>
+/// <term>Subtract</term>
+/// <description>Subtraction Operation</description>
+/// </item>
+/// <item>
+/// <term>Multiply</term>
+/// <description>Multiplication Operation</description>
+/// </item>
+/// <item>
+/// <term>Divide</term>
+/// <description>Division Operation</description>
+/// </item>
+/// </list>
+/// </summary>
+/// <remarks>
+/// <para>This class can add, subtract, multiply and divide.</para>
+/// <para>These operations can be performed on both integers and doubles.</para>
+/// </remarks>
     public class MoneyHandler: IMoneyHandler
     {
         private readonly ICatalogItemProvider _catalogItemProvider;
