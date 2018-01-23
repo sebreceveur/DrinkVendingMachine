@@ -48,11 +48,16 @@ namespace DrinkVendingMachine.Business.Impl
             }
 
             foreach(var coin in coins){
-                var tmp = storage.Where(arg => arg.Value == coin).First();
-                if( tmp.Quantity + 1 > tmp.Capacity){
-                    // capacity reached for this coin
-                    return capacityUnReached = false;
+                var list = storage.Where(arg => arg.Value == coin);
+                if(list.Count()>0){
+                    var tmp = list.First();
+                    if (tmp.Quantity +  (coins.Count((arg) => arg == coin)) > tmp.Capacity)
+                    {
+                        // capacity reached for this coin
+                        return capacityUnReached = false;
+                    }
                 }
+
             }
 
             return capacityUnReached;
@@ -70,7 +75,7 @@ namespace DrinkVendingMachine.Business.Impl
         /// <param name="moneyAvailable">Money available for the counterparty. Could be seen as a cash register. A list of decimal.</param>
         public List<decimal> GiveBackMoney(decimal itemPrice, decimal givenMoney, List<decimal> givenBackMoney, List<decimal> moneyAvailable){
             // Money is not enough to pay
-            if (givenMoney < itemPrice)
+            if (givenMoney < itemPrice || moneyAvailable == null || moneyAvailable.Count() < 1)
             {
                 return null;
             }
