@@ -19,6 +19,7 @@
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Content Remove="ClientApp\**" />
+    <Content Remove="DrinkVendingMachine.Test\obj\project.assets.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,11 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Model\Item.cs" />
+    <Compile Remove="DrinkVendingMachine.Test\MoneyHandlerUnitTest.cs" />
+    <Compile Remove="DrinkVendingMachine.Test\obj\Debug\netcoreapp2.0\DrinkVendingMachine.Test.Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ClientApp\app\components\coin\coinstore.component.html" />
     <None Remove="ClientApp\app\components\coin\coinstore.component.css" />
     <None Remove="ClientApp\app\components\coin\coin.component.html" />
+    <None Remove="DrinkVendingMachine.Test\.DS_Store" />
+    <None Remove="DrinkVendingMachine.Test\bin\.DS_Store" />
+    <None Remove="DrinkVendingMachine.Test\obj\DrinkVendingMachine.Test.csproj.nuget.cache" />
+    <None Remove="DrinkVendingMachine.Test\obj\DrinkVendingMachine.Test.csproj.nuget.g.props" />
+    <None Remove="DrinkVendingMachine.Test\obj\DrinkVendingMachine.Test.csproj.nuget.g.targets" />
+    <None Remove="DrinkVendingMachine.Test\obj\Debug\netcoreapp2.0\DrinkVendingMachine.Test.csproj.CopyComplete" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->

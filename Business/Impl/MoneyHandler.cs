@@ -20,6 +20,9 @@ namespace DrinkVendingMachine.Business.Impl
         private readonly ICoinStoreProvider _coinStoreProvider;
         private readonly IDrinkProvider _drinkProvider;
 
+        public MoneyHandler(){
+            
+        }
 
         public MoneyHandler(ICatalogItemProvider catalogItemProvider, ICoinStoreProvider coinStoreProvider, IDrinkProvider drinkProvider)
         {
