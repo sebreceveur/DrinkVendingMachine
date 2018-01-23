@@ -3,7 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DrinkVendingMachine.Model
 {
-    
+    /// <summary>
+    /// Coin is a static class helper, with the different values of the money
+    /// </summary>
     public static class Coin
     {
         public const decimal Five = 5;
@@ -15,7 +17,9 @@ namespace DrinkVendingMachine.Model
         public const decimal FiveCent = 0.05m;
     }
 
-
+    /// <summary>
+    /// Storage of the coins, with the value, it's quantity, and capacity of the storage for its coin
+    /// </summary>
     public class CoinStore
     {
         public int ID { get; set; }

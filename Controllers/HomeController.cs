@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkVendingMachine.Controllers
 {
+    /// <summary>
+    /// Home controller is the entry point of a MVC App by default. Here, we use it like that too.
+    /// The front being an Angular app.
+    /// </summary>
     public class HomeController : Controller
     {
         public IActionResult Index()

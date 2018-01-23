@@ -6,6 +6,9 @@ using DrinkVendingMachine.Model;
 
 namespace DrinkVendingMachine.Data.Provider.Impl
 {
+    /// <summary>
+    /// Drink provider allows to access to the drink types.
+    /// </summary>
     public class DrinkProvider: IDrinkProvider
     {
 
@@ -16,6 +19,13 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             _context = context;
         }
 
+        /// <summary>
+        /// Gets the drinks according to the stock of the vending machine.
+        /// </summary>
+        /// <remarks>
+        /// Use the Catalog.
+        /// </remarks>
+        /// <returns>The drinks. A drink enumerable.</returns>
         public IEnumerable<Drink> GetDrinks()
         {
             var drinks = (from d in this._context.Drinks.ToList()
@@ -34,6 +44,13 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             return drinks;
         }
 
+        /// <summary>
+        /// Removes a in the storage.
+        /// </summary>
+        /// <remarks>
+        /// Actually decrease the quantity in the catalog.
+        /// </remarks>
+        /// <param name="drink">A drink to remove.</param>
         public void RemoveDrink(Drink drink){
 
             CatalogItem itemToDecrease = _context.CatalogItems.Where(arg => arg.DrinkID == drink.ID).First();

@@ -6,6 +6,9 @@ using DrinkVendingMachine.Model;
 
 namespace DrinkVendingMachine.Data.Provider.Impl
 {
+    /// <summary>
+    /// CoinStoreP rovider allows to access to Coin storage in the db.
+    /// </summary>
     public class CoinStoreProvider: ICoinStoreProvider
     {
 
@@ -16,11 +19,21 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             _context = context;
         }
 
+        /// <summary>
+        /// Gets all the coins.
+        /// </summary>
+        /// <returns>The coins.</returns>
         public IEnumerable<CoinStore> GetCoins()
         {
             return _context.Coins.ToList();
         }
 
+        /// <summary>
+        /// Update the specified coins.
+        /// </summary>
+        /// <remarks>Increase the quantities for the different coins specicied in parameter.</remarks>
+        /// <returns>The update.</returns>
+        /// <param name="coinInserted">Coin inserted.</param>
         public void Update(IEnumerable<CoinStore> coinInserted)
         {
             IEnumerable<CoinStore> coins = _context.Coins.ToList();
@@ -38,6 +51,12 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Removes the change to the storage.
+        /// </summary>
+        /// <remarks>Decrease the quantities for the different coins specicied in parameter.
+        /// </remarks>
+        /// <param name="giveBackMoney">Give back money.</param>
         public void RemoveChange(IEnumerable<decimal> giveBackMoney){
             IEnumerable<CoinStore> coins = _context.Coins.ToList();
 
@@ -54,6 +73,10 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Gets the available money in the storage.
+        /// </summary>
+        /// <returns>The available money as a decimal list.</returns>
         public List<decimal> GetAvailableMoney(){
             var storage = _context.Coins.ToList();
             List<decimal> moneyAvailable = new List<decimal>();
@@ -109,11 +132,6 @@ namespace DrinkVendingMachine.Data.Provider.Impl
                         break;
                 }
             }
-
-            //storage.ForEach((obj) =>
-            //{
-                
-            //});
 
             return moneyAvailable;
 

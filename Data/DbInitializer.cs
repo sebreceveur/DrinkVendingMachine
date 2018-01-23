@@ -4,6 +4,9 @@ using DrinkVendingMachine.Model;
 
 namespace DrinkVendingMachine.Data
 {
+    /// <summary>
+    /// Db initializer. Fills the database with default values.
+    /// </summary>
     public static class DbInitializer
     {
         public static void Initialize(DataBaseContext context)
@@ -30,9 +33,6 @@ namespace DrinkVendingMachine.Data
 
 
             var items = new CatalogItem[]{
-                //new CatalogItem{ DrinkID = 1, Quantity = 20, DrinkStoreID = drinkStore.ID},
-                //new CatalogItem{ DrinkID = 2, Quantity = 10, DrinkStoreID = drinkStore.ID},
-                //new CatalogItem{ DrinkID = 3, Quantity = 15, DrinkStoreID = drinkStore.ID},
 
                 new CatalogItem{ DrinkID = 1, Quantity = 20},
                 new CatalogItem{ DrinkID = 2, Quantity = 10},
@@ -60,8 +60,6 @@ namespace DrinkVendingMachine.Data
                 context.Coins.Add(c);
             }
             context.SaveChanges();
-
-
 
         }
     }
