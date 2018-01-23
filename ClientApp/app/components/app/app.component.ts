@@ -5,5 +5,7 @@ import { Component } from '@angular/core';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
+
+/** Base component of the app */
 export class AppComponent {
 }

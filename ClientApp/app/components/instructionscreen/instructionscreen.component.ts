@@ -8,6 +8,9 @@ import { MessageService } from '../../service/message.service';
     styleUrls: ['./instructionscreen.component.css']
 })
 
+/** 
+ * Simple component that represents the instruction screen
+ */
 export class InstructionScreenComponent {
     constructor(public messageService: MessageService) {
         

@@ -11,6 +11,11 @@ import { Coin } from '../../model/coin';
     templateUrl: './coinstore.component.html',
     styleUrls: ['./coinstore.component.css']
 })
+
+/** 
+ * Handle the graphical representation of 
+ * the vending machine storage of the coins
+ */
 export class CoinStoreComponent {
 
     @Input() refresh: boolean;
@@ -23,7 +28,10 @@ export class CoinStoreComponent {
     tenCCoin: Coin;
     fiveCCoin: Coin;
 
-    // used for convience: *ngFor only takes collection and not numbers
+
+    /** 
+     * Used for convience: *ngFor only takes collection and not numbers
+     */
     fiveCoins: Coin[];
     twoCoins: Coin[];
     oneCoins: Coin[];
@@ -38,6 +46,9 @@ export class CoinStoreComponent {
 
     }
 
+    /** 
+     * Refresh the view when triggered by the dispenser 
+     */
     ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
 
         for (let propName in changes) {
@@ -46,9 +57,7 @@ export class CoinStoreComponent {
               if (!changedProp.isFirstChange()) {
                 this.getStorage(); 
               }
-
           }
-
     }
 
     ngOnInit() {
@@ -56,7 +65,9 @@ export class CoinStoreComponent {
         this.getStorage();
     }
 
-
+    /**
+    * Fills the array that the template displays
+    */
     getStorage(): void{
         this.coinService.currentStorage()
            .subscribe((coins: Coin[]) => {

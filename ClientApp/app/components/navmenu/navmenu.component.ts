@@ -5,5 +5,10 @@ import { Component } from '@angular/core';
     templateUrl: './navmenu.component.html',
     styleUrls: ['./navmenu.component.css']
 })
+
+/** 
+ * Navigation menu, not shown in this app
+ * but kept for furthermore development
+ */
 export class NavMenuComponent {
 }

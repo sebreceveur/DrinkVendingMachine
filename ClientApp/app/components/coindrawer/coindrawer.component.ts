@@ -24,6 +24,10 @@ export const COINS: Coin[] = [
     templateUrl: './coindrawer.component.html',
     styleUrls: ['./coindrawer.component.css']
 })
+
+/** 
+ * Handle the coin insertion in the dispenser
+ */
 export class CoinDrawerComponent {
 
     @Output() onCoinInserted = new EventEmitter<Coin>();
@@ -31,6 +35,11 @@ export class CoinDrawerComponent {
     coins = COINS; // coins displayed in the drawer
     lastCoin: Coin;
 
+     /**
+     * Called on click on a coin
+     * Notified the dispenser
+     * @param {Coin} coin - The coin selected
+     */
     onUseCoin(coin: Coin): void {
         this.lastCoin = coin;
         this.onCoinInserted.emit(this.lastCoin); // notify the dispenser (the parent)

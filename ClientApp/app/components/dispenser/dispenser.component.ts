@@ -13,6 +13,10 @@ import { DrinkCan } from '../../model/drinkCan';
     templateUrl: './dispenser.component.html',
     styleUrls: ['./dispenser.component.css']
 })
+
+/** 
+ * Main component which instantiate CoinDrawer, Coinstore, Drinkcan, Instructionscreen 
+ */
 export class DispenserComponent {
 
     selectedDrinkCan: DrinkCan;
@@ -28,22 +32,36 @@ export class DispenserComponent {
         this.getDrink();
     }
 
+    /**
+     * Load the drink by calling the dispenser.service.
+     */
     getDrink(): void{
 
         this.dispenserService.getDrinks()
             .subscribe(drinkcans => this.drinkCans = drinkcans);
     }
 
+     /**
+     * Select a drink 
+     * @param {DrinkCan} drink - The drink selected
+     */
     onDrinkSelected(drink: DrinkCan){
         this.selectedDrinkCan = drink;
         this.messageService.add("You are choosing "+drink.description);
     }
 
+     /**
+     * Insert a coin in the dispenser
+     * @param {Coin} coin - The coin to inserted
+     */
     insertCoin(coin: Coin): void{
         this.coinInserted.push(coin);
     }
 
-
+     /**
+     * Method raised when a coin is pressed on the drawer
+     * @param {Coin} coinToInsert - The coin to inser
+     */
     onCoinInserted(coinToInsert: Coin) {
         this.insertCoin(coinToInsert);
         let tmp = "";
@@ -60,6 +78,10 @@ export class DispenserComponent {
         this.messageService.add("You inserted the following coins: "+tmp);
     }
 
+     /**
+     * Call the dispenser.service with inserted 
+     * coins and drink choice
+     */
     onValidateOrder(){
         var self = this;
 
@@ -69,7 +91,16 @@ export class DispenserComponent {
                 if(delivery != null && delivery.drink != null && delivery.errorMessage == null){
                     self.messageService.add(`Here is your ${delivery.drink.description}, enjoy!`);
                     if(delivery.coins.length > 0 ){
-                        self.messageService.add(`Here is your change ${delivery.coins}`);
+                        let tmp = "";
+                        delivery.coins.forEach( function(e){
+                            if(tmp ==""){
+                                tmp += ' '+e;
+                            }
+                            else{
+                                tmp += ', '+e;
+                            }
+                        });
+                        self.messageService.add(`Here is your change ${tmp}`);
                     }
 
                     self.refreshToggle = self.refreshToggle ? false: true;
@@ -100,9 +131,11 @@ export class DispenserComponent {
             self.messageService.add("You first need to insert coin(s) to order a drink!")
         }
 
-
     }
 
+     /**
+     * Remove the inserted coin and the drink choice
+     */
     onCancelOrder(): void{
         this.coinInserted = [];
         this.selectedDrinkCan = new DrinkCan;
