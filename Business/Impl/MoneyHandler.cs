@@ -10,31 +10,10 @@ namespace DrinkVendingMachine.Business.Impl
 
 
 /// <summary>
-/// The main <c>Math</c> class.
-/// Contains all methods for performing basic math functions.
-/// <list type="bullet">
-/// <item>
-/// <term>Add</term>
-/// <description>Addition Operation</description>
-/// </item>
-/// <item>
-/// <term>Subtract</term>
-/// <description>Subtraction Operation</description>
-/// </item>
-/// <item>
-/// <term>Multiply</term>
-/// <description>Multiplication Operation</description>
-/// </item>
-/// <item>
-/// <term>Divide</term>
-/// <description>Division Operation</description>
-/// </item>
-/// </list>
+/// The Money handler class.
+/// Contains an recursive algorithm to give the change back considering a price
+/// of an object, the given money, and the money available
 /// </summary>
-/// <remarks>
-/// <para>This class can add, subtract, multiply and divide.</para>
-/// <para>These operations can be performed on both integers and doubles.</para>
-/// </remarks>
     public class MoneyHandler: IMoneyHandler
     {
         private readonly ICatalogItemProvider _catalogItemProvider;
@@ -50,6 +29,14 @@ namespace DrinkVendingMachine.Business.Impl
             _drinkProvider = drinkProvider;
         }
 
+        /// <summary>
+        /// Determines whether given money can be inserted in the storage
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        /// <returns><c>true</c>, if there is enogh space, <c>false</c> otherwise.</returns>
+        /// <param name="coins">A decimal list.</param>
+        /// <param name="storage">A CoinStore list.</param>
         public bool AreCoinsStorable(List<decimal> coins, List<CoinStore> storage){
             bool capacityUnReached = true;
 
@@ -68,14 +55,17 @@ namespace DrinkVendingMachine.Business.Impl
             return capacityUnReached;
         }
 
+        /// <summary>
+        /// Gives the money back.
+        /// </summary>
+        /// <remarks>For this algorithm we don't need to care about which exact coin is inserted, but we only need the total.
+        ///</remarks>
+        /// <returns>The money given back.</returns>
+        /// <param name="itemPrice">Price to consider for the transaction. A decimal number.</param>
+        /// <param name="givenMoney">The money given by the client. A decimal number.</param>
+        /// <param name="givenBackMoney">Given back money. A list of decimal.</param>
+        /// <param name="moneyAvailable">Money available for the counterparty. Could be seen as a cash register. A list of decimal.</param>
         public List<decimal> GiveBackMoney(decimal itemPrice, decimal givenMoney, List<decimal> givenBackMoney, List<decimal> moneyAvailable){
-            return PGiveBackMoney(itemPrice, givenMoney, givenBackMoney, moneyAvailable);
-        }
-
-        // for this algorithm we don't need to care about which exact coin is inserted, but we only need the total
-        // we'll do a IsCoinsStorable though!
-        private List<Decimal> PGiveBackMoney(decimal itemPrice, decimal givenMoney, List<decimal> givenBackMoney, List<decimal> moneyAvailable)
-        {
             // Money is not enough to pay
             if (givenMoney < itemPrice)
             {
