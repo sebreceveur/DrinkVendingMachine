@@ -82,39 +82,16 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             List<decimal> moneyAvailable = new List<decimal>();
 
             foreach(var item in storage){
-                switch (item.Value)
+
+                if(item.Value > 0)
                 {
-                    case Coin.Five:                        
-                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.Five, item.Quantity));
-                        break;
-                    case Coin.Two:
-                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.Two, item.Quantity));
-                        break;
-                    case Coin.One:
-                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.One, item.Quantity));
-                        break;
-                    case Coin.FiftyCent:
-                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.FiftyCent, item.Quantity));
-                        break;
-
-                    case Coin.TwentyCent:
-                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.TwentyCent, item.Quantity));
-                        break;
-
-                    case Coin.TenCent:
-                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.TenCent, item.Quantity));
-                        break;
-
-                    case Coin.FiveCent:
-                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.FiveCent, item.Quantity));
-                        break;
+                    moneyAvailable.AddRange(Enumerable.Repeat(item.Value, item.Quantity));
                 }
             }
 
             return moneyAvailable;
 
         }
-
 
     }
 }
