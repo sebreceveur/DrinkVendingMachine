@@ -84,51 +84,29 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             foreach(var item in storage){
                 switch (item.Value)
                 {
-                    case Coin.Five:
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            moneyAvailable.Add(Coin.Five);
-                        }
+                    case Coin.Five:                        
+                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.Five, item.Quantity));
                         break;
                     case Coin.Two:
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            moneyAvailable.Add(Coin.Two);
-                        }
+                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.Two, item.Quantity));
                         break;
-
                     case Coin.One:
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            moneyAvailable.Add(Coin.One);
-                        }
+                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.One, item.Quantity));
                         break;
                     case Coin.FiftyCent:
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            moneyAvailable.Add(Coin.FiftyCent);
-                        }
+                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.FiftyCent, item.Quantity));
                         break;
 
                     case Coin.TwentyCent:
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            moneyAvailable.Add(Coin.TwentyCent);
-                        }
+                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.TwentyCent, item.Quantity));
                         break;
 
                     case Coin.TenCent:
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            moneyAvailable.Add(Coin.TenCent);
-                        }
+                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.TenCent, item.Quantity));
                         break;
 
                     case Coin.FiveCent:
-                        for (int i = 0; i < item.Quantity; i++)
-                        {
-                            moneyAvailable.Add(Coin.FiveCent);
-                        }
+                        moneyAvailable.AddRange(Enumerable.Repeat(Coin.FiveCent, item.Quantity));
                         break;
                 }
             }
