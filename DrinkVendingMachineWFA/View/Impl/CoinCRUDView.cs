@@ -24,7 +24,7 @@ namespace DrinkVendingMachineWFA.View.Impl
 
             updateBtn.Click += (sender, e) =>
             {
-                if(ID != null && !String.IsNullOrEmpty(capacityBox.Text) 
+                if(ID >0 && !String.IsNullOrEmpty(capacityBox.Text) 
                 && !String.IsNullOrEmpty(quantityBox.Text) && !String.IsNullOrEmpty(valueBox.Text))
                 {
                     EventAggregator.Instance.Publish(
@@ -39,6 +39,11 @@ namespace DrinkVendingMachineWFA.View.Impl
 
 
             };
+
+            //TODO to complete
+            deleteBtn.Enabled = false;
+            insertBtn.Enabled = false;
+            dataGridView1.ReadOnly = true;
         }
 
 
@@ -57,9 +62,6 @@ namespace DrinkVendingMachineWFA.View.Impl
         }
 
         // events
-
-
-
 
 
         private void InsertBtn_Click(object sender, EventArgs e)

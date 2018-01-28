@@ -23,16 +23,21 @@ namespace DrinkVendingMachineWFA
 
             //Services (Call to the web API)
             WebClientServiceBase coinService = new CoinStorageService();
+            WebClientServiceBase drinkService = new DrinkService();
 
             //Views
             CoinCRUDView coinCRUD = new CoinCRUDView();
+            DispenserView dispenserView = new DispenserView();
 
             //Presenters
             CoinCRUDPresenter coinCRUDPresenter = new CoinCRUDPresenter(coinCRUD, coinService);
+            DispenserPresenter dispenserPresenter = new DispenserPresenter(dispenserView, drinkService);
 
 
             //Main
-            MainForm main = new MainForm(coinCRUD);
+            MainForm main = new MainForm(dispenserView, coinCRUD);
+
+            
 
             Application.Run(main);
         }

@@ -22,9 +22,7 @@ namespace DrinkVendingMachineWFA.Presenter
         {
             _coinCRUDView = coinView;
             _coinService = coinService;
-            FillGrid();
-
-            
+            FillGrid();            
 
             EventAggregator.Instance.Subscribe<ApplicationMessageGeneric<CoinStore>>(OnUpdated);
         }

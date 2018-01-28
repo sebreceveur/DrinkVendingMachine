@@ -54,21 +54,38 @@
     <Compile Include="Event\Impl\CoinEvent.cs" />
     <Compile Include="Event\Impl\EventAggregator.cs" />
     <Compile Include="Event\Contract\IEventAggregator.cs" />
+    <Compile Include="Helper\DrinkButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helper\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\CatalogItem.cs" />
     <Compile Include="Model\CoinStore.cs" />
+    <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\Drink.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Presenter\CoinCRUDPresenter.cs" />
+    <Compile Include="Presenter\DispenserPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CoinStorageService.cs" />
+    <Compile Include="Service\DrinkService.cs" />
     <Compile Include="Service\IWebClientService.cs" />
     <Compile Include="Service\WebClientServiceBase.cs" />
     <Compile Include="View\Contract\ICoinView.cs" />
+    <Compile Include="View\Contract\IDispenserView.cs" />
     <Compile Include="View\Impl\CoinCRUDView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\Impl\CoinCRUDView.Designer.cs">
       <DependentUpon>CoinCRUDView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Impl\DispenserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Impl\DispenserView.Designer.cs">
+      <DependentUpon>DispenserView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Impl\MainForm.cs">
       <SubType>Form</SubType>
@@ -87,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="View\Impl\CoinCRUDView.resx">
       <DependentUpon>CoinCRUDView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Impl\DispenserView.resx">
+      <DependentUpon>DispenserView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Impl\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

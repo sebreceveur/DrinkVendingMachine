@@ -17,8 +17,8 @@ namespace DrinkVendingMachineWFA.Service
 
         public WebClientServiceBase()
         {
-            //BaseUri = "http://localhost/DrinkVendingMachine/api";
-            BaseUri = "http://localhost:53616/api";
+            BaseUri = "http://localhost/DrinkVendingMachine/api";
+            //BaseUri = "http://localhost:53616/api";
         }
 
         public virtual object Get()

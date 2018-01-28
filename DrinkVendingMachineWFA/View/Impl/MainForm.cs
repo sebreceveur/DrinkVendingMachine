@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrinkVendingMachineWFA.View.Contract;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,27 @@ namespace DrinkVendingMachineWFA.View.Impl
 {
     public partial class MainForm : Form
     {
-        public MainForm(Control coinViewCRUD)
+        private readonly IDispenserView _dispenserView;
+        private readonly Control _coinCRUDView;
+        public MainForm(Control dispenserView,Control coinCRUDView)
         {
             InitializeComponent();
 
-            coinViewCRUD.Dock = DockStyle.Fill;
-            coinCRUDPage.Controls.Add(coinViewCRUD);
+            _dispenserView = (IDispenserView)dispenserView;
+            _coinCRUDView = coinCRUDView;
+
+            _coinCRUDView.Dock = DockStyle.Fill;
+            coinCRUDPage.Controls.Add(_coinCRUDView);
+
+            dispenserView.Dock = DockStyle.Fill;
+            dispenserTabPage.Controls.Add(dispenserView);
+
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //_dispenserView.DrawCans();
         }
     }
 }
