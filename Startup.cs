@@ -30,7 +30,7 @@ namespace DrinkVendingMachine
         {
             // framework services;
             services.AddDbContext<DataBaseContext>(options =>
-                                                   options.UseSqlite("Data Source=VendingMachine.db")
+                                                   options.UseSqlite("Data Source=DB/VendingMachine.db")
                                                    ,ServiceLifetime.Transient);
             services.AddMvc();
 

@@ -47,6 +47,7 @@
     <Folder Include="Data\Provider\" />
     <Folder Include="Data\Provider\Contract\" />
     <Folder Include="Data\Provider\Impl\" />
+    <Folder Include="DB\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Model\Item.cs" />

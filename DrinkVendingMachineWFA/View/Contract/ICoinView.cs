@@ -10,12 +10,5 @@ namespace DrinkVendingMachineWFA.View.Contract
     {
         void SetDataGrid(object dataSource);
 
-        event EventHandler InsertData;
-
-        event EventHandler UpdateData;
-
-        event EventHandler DeleteData;
-
-        event EventHandler SomeEventChanged;
     }
 }

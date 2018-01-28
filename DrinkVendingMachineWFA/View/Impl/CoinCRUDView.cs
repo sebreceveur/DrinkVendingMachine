@@ -21,6 +21,24 @@ namespace DrinkVendingMachineWFA.View.Impl
         public CoinCRUDView()
         {
             InitializeComponent();
+
+            updateBtn.Click += (sender, e) =>
+            {
+                if(ID != null && !String.IsNullOrEmpty(capacityBox.Text) 
+                && !String.IsNullOrEmpty(quantityBox.Text) && !String.IsNullOrEmpty(valueBox.Text))
+                {
+                    EventAggregator.Instance.Publish(
+                    new ApplicationMessageGeneric<CoinStore>(new CoinStore()
+                    {
+                        ID = this.ID,
+                        Capacity = Convert.ToInt32(capacityBox.Text),
+                        Quantity = Convert.ToInt32(quantityBox.Text),
+                        Value = Convert.ToDecimal(valueBox.Text)
+                    }));
+                }
+
+
+            };
         }
 
 
@@ -36,25 +54,12 @@ namespace DrinkVendingMachineWFA.View.Impl
             quantityBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             capacityBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-            OnSomeEventChanged(new EventArgs());
         }
 
         // events
 
-        public event EventHandler SomeEventChanged;
-        public event EventHandler InsertData;
-        public event EventHandler UpdateData;
-        public event EventHandler DeleteData;
 
-        protected virtual void OnSomeEventChanged(EventArgs e)
-        {
-            SomeEventChanged?.Invoke(this, e);
-        }
 
-        protected virtual void OnUpdateData(EventArgs e)
-        {
-            UpdateData?.Invoke(this, e);
-        }
 
 
         private void InsertBtn_Click(object sender, EventArgs e)
@@ -62,24 +67,18 @@ namespace DrinkVendingMachineWFA.View.Impl
 
         }
 
-        private void UpdateBtn_Click(object sender, EventArgs e)
-        {
-            //OnUpdateData(new EventArgs());
+        //private void UpdateBtn_Click(object sender, EventArgs e)
+        //{
 
-            EventAggregator.Instance.Publish(
-                new ApplicationMessageGeneric<CoinStore>(new CoinStore()
-                {
-                    ID = this.ID,
-                    Capacity = Convert.ToInt32(capacityBox.Text),
-                    Quantity = Convert.ToInt32(quantityBox.Text),
-                    Value = Convert.ToDecimal(valueBox.Text)
-                }));
-            //EventAggregator.Instance.Publish(new CoinEvent(ID,
-            //    Convert.ToInt32(capacityBox.Text),
-            //    Convert.ToInt32(quantityBox.Text),
-            //    Convert.ToDecimal(valueBox.Text)));
-
-        }
+        //    EventAggregator.Instance.Publish(
+        //        new ApplicationMessageGeneric<CoinStore>(new CoinStore()
+        //        {
+        //            ID = this.ID,
+        //            Capacity = Convert.ToInt32(capacityBox.Text),
+        //            Quantity = Convert.ToInt32(quantityBox.Text),
+        //            Value = Convert.ToDecimal(valueBox.Text)
+        //        }));
+        //}
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {

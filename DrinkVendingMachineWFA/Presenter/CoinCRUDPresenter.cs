@@ -24,8 +24,7 @@ namespace DrinkVendingMachineWFA.Presenter
             _coinService = coinService;
             FillGrid();
 
-            _coinCRUDView.SomeEventChanged += LocalMethod;
-
+            
 
             EventAggregator.Instance.Subscribe<ApplicationMessageGeneric<CoinStore>>(OnUpdated);
         }
@@ -33,12 +32,6 @@ namespace DrinkVendingMachineWFA.Presenter
         private void OnUpdated(ApplicationMessageGeneric<CoinStore> c)
         {
             _coinService.Post(c.Field);
-        }
-
-        //TODO Remove
-        private void LocalMethod(object sender, EventArgs args)
-        {
-            int i = 0;
         }
 
         public void FillGrid()
