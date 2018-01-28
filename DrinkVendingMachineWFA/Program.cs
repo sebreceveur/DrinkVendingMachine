@@ -22,13 +22,13 @@ namespace DrinkVendingMachineWFA
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Services (Call to the web API)
-            WebClient webclient = new WebClient();
+            WebClientServiceBase coinService = new CoinStorageService();
 
             //Views
             CoinCRUDView coinCRUD = new CoinCRUDView();
 
             //Presenters
-            CoinCRUDPresenter coinCRUDPresenter = new CoinCRUDPresenter(coinCRUD, webclient);
+            CoinCRUDPresenter coinCRUDPresenter = new CoinCRUDPresenter(coinCRUD, coinService);
 
 
             //Main

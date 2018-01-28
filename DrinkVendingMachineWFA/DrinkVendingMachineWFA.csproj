@@ -48,10 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event\Contract\IApplicationEvent.cs" />
+    <Compile Include="Event\Impl\ApplicationMessage.cs" />
+    <Compile Include="Event\Impl\ApplicationMessageGeneric.cs" />
+    <Compile Include="Event\Impl\CoinEvent.cs" />
+    <Compile Include="Event\Impl\EventAggregator.cs" />
+    <Compile Include="Event\Contract\IEventAggregator.cs" />
+    <Compile Include="Model\CatalogItem.cs" />
+    <Compile Include="Model\CoinStore.cs" />
+    <Compile Include="Model\Drink.cs" />
     <Compile Include="Presenter\CoinCRUDPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\WebClient.cs" />
+    <Compile Include="Service\CoinStorageService.cs" />
+    <Compile Include="Service\IWebClientService.cs" />
+    <Compile Include="Service\WebClientServiceBase.cs" />
     <Compile Include="View\Contract\ICoinView.cs" />
     <Compile Include="View\Impl\CoinCRUDView.cs">
       <SubType>UserControl</SubType>
@@ -94,9 +105,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Event\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

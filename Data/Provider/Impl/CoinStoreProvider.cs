@@ -51,6 +51,20 @@ namespace DrinkVendingMachine.Data.Provider.Impl
             _context.SaveChanges();
         }
 
+        public void Update(CoinStore coin)
+        {
+            CoinStore retrievedCoin = _context.Coins.Find(new { coin.ID });
+
+            if(retrievedCoin != null)
+            {
+                retrievedCoin.Capacity = coin.Capacity;
+                retrievedCoin.Quantity = coin.Quantity;
+                retrievedCoin.Value = coin.Value;
+
+                _context.Coins.Update(retrievedCoin);
+            }
+        }
+
         /// <summary>
         /// Removes the change to the storage.
         /// </summary>

@@ -10,6 +10,8 @@ namespace DrinkVendingMachine.Data.Provider.Contract
 
         void Update(IEnumerable<CoinStore> coinInserted);
 
+        void Update(CoinStore coin);
+
         void RemoveChange(IEnumerable<decimal> giveBackMoney);
 
         List<decimal> GetAvailableMoney();

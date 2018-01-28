@@ -29,5 +29,12 @@ namespace DrinkVendingMachine.API
             return _coinProvider.GetCoins();
         }
 
+        [HttpPost]
+        public void Post([FromBody]CoinStore coinStore)
+        {
+            _coinProvider.Update(coinStore);
+
+        }
+
     }
 }
