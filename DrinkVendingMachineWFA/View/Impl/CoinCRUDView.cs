@@ -31,11 +31,10 @@ namespace DrinkVendingMachineWFA.View.Impl
 
         private void CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
+            ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
             valueBox.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();            
             quantityBox.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             capacityBox.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-
 
             OnSomeEventChanged(new EventArgs());
         }

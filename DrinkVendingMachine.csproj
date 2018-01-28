@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
     <PackageReference Include="xunit" Version="2.3.1" />
   </ItemGroup>
 
@@ -19,12 +20,15 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="DrinkVendingMachine.Test\**" />
     <Compile Remove="DrinkVendingMachineWFA\**" />
     <Content Remove="ClientApp\**" />
+    <Content Remove="DrinkVendingMachine.Test\**" />
     <Content Remove="DrinkVendingMachineWFA\**" />
+    <EmbeddedResource Remove="DrinkVendingMachine.Test\**" />
     <EmbeddedResource Remove="DrinkVendingMachineWFA\**" />
+    <None Remove="DrinkVendingMachine.Test\**" />
     <None Remove="DrinkVendingMachineWFA\**" />
-    <Content Remove="DrinkVendingMachine.Test\obj\project.assets.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,7 +40,6 @@
     <Folder Include="ClientApp\app\components\coindrawer\" />
     <Folder Include="ClientApp\app\model\" />
     <Folder Include="ClientApp\app\service\" />
-    <Folder Include="API\" />
     <Folder Include="ClientApp\app\components\instructionscreen\" />
     <Folder Include="Business\" />
     <Folder Include="Business\Contract\" />
@@ -47,19 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Model\Item.cs" />
-    <Compile Remove="DrinkVendingMachine.Test\MoneyHandlerUnitTest.cs" />
-    <Compile Remove="DrinkVendingMachine.Test\obj\Debug\netcoreapp2.0\DrinkVendingMachine.Test.Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ClientApp\app\components\coin\coinstore.component.html" />
     <None Remove="ClientApp\app\components\coin\coinstore.component.css" />
     <None Remove="ClientApp\app\components\coin\coin.component.html" />
-    <None Remove="DrinkVendingMachine.Test\.DS_Store" />
-    <None Remove="DrinkVendingMachine.Test\bin\.DS_Store" />
-    <None Remove="DrinkVendingMachine.Test\obj\DrinkVendingMachine.Test.csproj.nuget.cache" />
-    <None Remove="DrinkVendingMachine.Test\obj\DrinkVendingMachine.Test.csproj.nuget.g.props" />
-    <None Remove="DrinkVendingMachine.Test\obj\DrinkVendingMachine.Test.csproj.nuget.g.targets" />
-    <None Remove="DrinkVendingMachine.Test\obj\Debug\netcoreapp2.0\DrinkVendingMachine.Test.csproj.CopyComplete" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->

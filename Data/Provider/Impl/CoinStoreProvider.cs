@@ -53,15 +53,18 @@ namespace DrinkVendingMachine.Data.Provider.Impl
 
         public void Update(CoinStore coin)
         {
-            CoinStore retrievedCoin = _context.Coins.Find(new { coin.ID });
+            //CoinStore retrievedCoin = _context.Coins.Find(new { coin.ID });
 
-            if(retrievedCoin != null)
+            CoinStore retrievedCoin = _context.Coins.Find(coin.ID);
+
+            if (retrievedCoin != null)
             {
                 retrievedCoin.Capacity = coin.Capacity;
                 retrievedCoin.Quantity = coin.Quantity;
                 retrievedCoin.Value = coin.Value;
 
                 _context.Coins.Update(retrievedCoin);
+                _context.SaveChanges();
             }
         }
 
