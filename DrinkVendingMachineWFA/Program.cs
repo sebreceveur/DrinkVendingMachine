@@ -28,11 +28,14 @@ namespace DrinkVendingMachineWFA
             //Views
             CoinCRUDView coinCRUD = new CoinCRUDView();
             DispenserView dispenserView = new DispenserView();
+            CoinStorageView coinStorageView = new CoinStorageView();
+
+            dispenserView.SetCoinStorageView(coinStorageView);
 
             //Presenters
             CoinCRUDPresenter coinCRUDPresenter = new CoinCRUDPresenter(coinCRUD, coinService);
-            DispenserPresenter dispenserPresenter = new DispenserPresenter(dispenserView, drinkService);
-
+            DispenserPresenter dispenserPresenter = new DispenserPresenter(dispenserView, coinStorageView, drinkService);
+            //CoinStoragePresenter coinStoragePresenter = new CoinStoragePresenter();
 
             //Main
             MainForm main = new MainForm(dispenserView, coinCRUD);

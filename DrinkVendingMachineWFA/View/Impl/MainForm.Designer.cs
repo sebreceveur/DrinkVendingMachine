@@ -44,7 +44,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1085, 563);
+            this.tabControl1.Size = new System.Drawing.Size(1078, 610);
             this.tabControl1.TabIndex = 0;
             // 
             // dispenserTabPage
@@ -52,7 +52,7 @@
             this.dispenserTabPage.Location = new System.Drawing.Point(4, 25);
             this.dispenserTabPage.Name = "dispenserTabPage";
             this.dispenserTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.dispenserTabPage.Size = new System.Drawing.Size(1077, 534);
+            this.dispenserTabPage.Size = new System.Drawing.Size(1070, 581);
             this.dispenserTabPage.TabIndex = 0;
             this.dispenserTabPage.Text = "Vending Machine";
             this.dispenserTabPage.UseVisualStyleBackColor = true;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 563);
+            this.ClientSize = new System.Drawing.Size(1078, 610);
             this.Controls.Add(this.tabControl1);
             this.Name = "MainForm";
             this.Text = "MainForm";

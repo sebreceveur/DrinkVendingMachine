@@ -30,6 +30,7 @@ namespace DrinkVendingMachineWFA.Presenter
         private void OnUpdated(ApplicationMessageGeneric<CoinStore> c)
         {
             _coinService.Post(c.Field);
+            FillGrid();
         }
 
         public void FillGrid()

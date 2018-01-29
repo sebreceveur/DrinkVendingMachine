@@ -15,6 +15,8 @@ namespace DrinkVendingMachineWFA.View.Impl
 {
     public partial class DispenserView : UserControl, IDispenserView
     {
+        private ICoinStorageView _coinStorageView;
+
         public DispenserView()
         {
             InitializeComponent();
@@ -32,6 +34,14 @@ namespace DrinkVendingMachineWFA.View.Impl
             flowLayoutCans.Controls.AddRange(drinkButtons.ToArray());
         }
 
+        public void SetCoinStorageView(Control coinStorageView)
+        {
+            _coinStorageView = (ICoinStorageView) coinStorageView;
+
+            splitContainer4.Panel1.Controls.Add(coinStorageView);
+            
+        }
+
 
 
         //protected override void OnPaint(PaintEventArgs e)
@@ -46,7 +56,7 @@ namespace DrinkVendingMachineWFA.View.Impl
         //        e.Graphics.FillRectangle(brush, 30, 30, 60, 100);
 
         //        e.Graphics.FillRectangle(brush, 150, 30, 60, 100);
-               
+
         //        e.Graphics.FillEllipse(brush, 230, 30, 80, 80);
         //    }
         //}
@@ -121,8 +131,8 @@ namespace DrinkVendingMachineWFA.View.Impl
             {
                 Width = 55,
                 Height = 55,
-                Visible = true
-
+                Visible = true,
+                BackColor = Color.Gold
             };
             btn5Cch.Text = "5c CHF";
 

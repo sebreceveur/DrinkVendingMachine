@@ -10,7 +10,7 @@ namespace DrinkVendingMachineWFA.View.Contract
 {
     interface IDispenserView
     {
-        //void DrawCans();
+        void SetCoinStorageView(Control coinStorageView);
 
         void RefreshDispenser(List<DrinkButton> drinkButtons);
     }

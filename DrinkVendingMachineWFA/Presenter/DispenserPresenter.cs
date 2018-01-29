@@ -18,14 +18,16 @@ namespace DrinkVendingMachineWFA.Presenter
     {
         // View
         private readonly IDispenserView _dispenserView;
+        private readonly ICoinStorageView _coinStorageView;
 
         //Service
         private readonly IWebClientService _coinService;
 
-        public DispenserPresenter(IDispenserView dispenserView, IWebClientService coinService)
+        public DispenserPresenter(IDispenserView dispenserView, ICoinStorageView coinStorageView, IWebClientService coinService)
         {
             _dispenserView = dispenserView;
             _coinService = coinService;
+            _coinStorageView = coinStorageView;            
 
             FillDispenser();
             

@@ -13,21 +13,21 @@ namespace DrinkVendingMachineWFA.View.Impl
 {
     public partial class MainForm : Form
     {
-        private readonly IDispenserView _dispenserView;
+        private readonly Control _dispenserView;
         private readonly Control _coinCRUDView;
+        //private readonly Control _coinStorageView;
         public MainForm(Control dispenserView,Control coinCRUDView)
         {
             InitializeComponent();
 
-            _dispenserView = (IDispenserView)dispenserView;
+            _dispenserView = dispenserView;
             _coinCRUDView = coinCRUDView;
+            //_coinStorageView = coinStorageView;
 
             _coinCRUDView.Dock = DockStyle.Fill;
             coinCRUDPage.Controls.Add(_coinCRUDView);
-
             dispenserView.Dock = DockStyle.Fill;
             dispenserTabPage.Controls.Add(dispenserView);
-
 
         }
 

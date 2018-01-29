@@ -62,7 +62,7 @@
             // 
             // capacityBox
             // 
-            this.capacityBox.Location = new System.Drawing.Point(99, 13);
+            this.capacityBox.Location = new System.Drawing.Point(99, 83);
             this.capacityBox.Name = "capacityBox";
             this.capacityBox.Size = new System.Drawing.Size(186, 22);
             this.capacityBox.TabIndex = 1;
@@ -70,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 16);
+            this.label1.Location = new System.Drawing.Point(14, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 2;
@@ -79,7 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 52);
+            this.label2.Location = new System.Drawing.Point(14, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 4;
@@ -95,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 88);
+            this.label3.Location = new System.Drawing.Point(14, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 6;
@@ -103,7 +103,7 @@
             // 
             // valueBox
             // 
-            this.valueBox.Location = new System.Drawing.Point(99, 85);
+            this.valueBox.Location = new System.Drawing.Point(99, 15);
             this.valueBox.Name = "valueBox";
             this.valueBox.Size = new System.Drawing.Size(186, 22);
             this.valueBox.TabIndex = 5;
