@@ -8,13 +8,16 @@ using System.Windows.Forms;
 
 namespace DrinkVendingMachineWFA.Helper
 {
-    public class RoundButton : Button
+    public class CoinButton : Button
     {
-        public RoundButton()
+        public decimal Value { get; private set; }
+        public CoinButton(decimal v)
         {
             FlatStyle = FlatStyle.Flat;
             FlatAppearance.BorderSize = 0;
             BackColor = System.Drawing.Color.LightGray;
+            Value = v;
+
         }
 
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)

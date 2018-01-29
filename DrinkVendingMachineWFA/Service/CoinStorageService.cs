@@ -8,9 +8,11 @@ namespace DrinkVendingMachineWFA.Service
 {
     class CoinStorageService : WebClientServiceBase
     {
+        public override string BaseUri { get; protected set; }
+
         public CoinStorageService()
         {
-            base.BaseUri += "/coin";
+            this.BaseUri = "http://localhost/DrinkVendingMachine/api/coin";
         }
 
         public override object Get()

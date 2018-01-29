@@ -10,6 +10,7 @@ using DrinkVendingMachineWFA.View.Contract;
 using System.Windows.Forms;
 using DrinkVendingMachineWFA.Helper;
 using DrinkVendingMachineWFA.Model;
+using DrinkVendingMachineWFA.Event.Impl;
 
 namespace DrinkVendingMachineWFA.View.Impl
 {
@@ -17,20 +18,35 @@ namespace DrinkVendingMachineWFA.View.Impl
     {
         private ICoinStorageView _coinStorageView;
 
+        //events
+        public event EventHandler Cancel;
+        public event EventHandler Order;
+
         public DispenserView()
         {
             InitializeComponent();
             PrepareCoinDrawer();
 
-            //for(int i = 0; i < 4; i++)
-            //{
-            //    flowLayoutCans.Controls.Add(new DrinkButton() { Width = 60, Height = 100 });
-            //}           
+            cancelBtn.Click += OnCancel;
+            validateBtn.Click += OnOrdering;            
+        }
+
+        protected void OnCancel(object sender, EventArgs e)
+        {
+            Cancel?.Invoke(this, e);
+
+        }
+
+        protected void OnOrdering(object sender, EventArgs e)
+        {
+            Order?.Invoke(this, e);
 
         }
 
         public void RefreshDispenser(List<DrinkButton> drinkButtons)
         {
+            drinkButtons.ForEach(btn => btn.Click += PublicDrink);
+            flowLayoutCans.Controls.Clear();
             flowLayoutCans.Controls.AddRange(drinkButtons.ToArray());
         }
 
@@ -38,96 +54,73 @@ namespace DrinkVendingMachineWFA.View.Impl
         {
             _coinStorageView = (ICoinStorageView) coinStorageView;
 
-            splitContainer4.Panel1.Controls.Add(coinStorageView);
+            splitContainer4.Panel1.Controls.Add(coinStorageView);            
+        }
+
+        public void WriteMessage(string message)
+        {
+            if(logMessageBox.Text.Count((i) => i == '\n') > 5 )
+            {
+                logMessageBox.Text = message + "\r\n";
+            }
+            else
+            {
+                logMessageBox.Text +=  message+"\r\n";
+            }
             
         }
 
-
-
-        //protected override void OnPaint(PaintEventArgs e)
-        //{
-        //    // Call the OnPaint method of the base class.  
-        //    base.OnPaint(e);
-
-        //    // Declare and instantiate a new pen.  
-        //    using (System.Drawing.Brush brush = new SolidBrush(System.Drawing.Color.Red) )
-        //    {
-        //        // Draw an aqua rectangle in the rectangle represented by the control.  
-        //        e.Graphics.FillRectangle(brush, 30, 30, 60, 100);
-
-        //        e.Graphics.FillRectangle(brush, 150, 30, 60, 100);
-
-        //        e.Graphics.FillEllipse(brush, 230, 30, 80, 80);
-        //    }
-        //}
-
-        //public void DrawCans()
-        //{
-        //    g = pictureBox1.CreateGraphics();
-        //    g.FillRectangle(brush, 30, 30, 60, 100);
-
-        //    g = pictureBox1.CreateGraphics();
-        //    g.FillRectangle(brush, 150, 30, 60, 100);
-        //}
-
-
         private void PrepareCoinDrawer()
         {
-            RoundButton btn5ch = new RoundButton()
+            CoinButton btn5ch = new CoinButton(5m)
             {
                 Width = 100,
                 Height = 100,
                 Visible = true
-
             };
             btn5ch.Text = "5 CHF";
 
-            RoundButton btn2ch = new RoundButton()
+            CoinButton btn2ch = new CoinButton(2m)
             {
                 Width = 87,
                 Height = 87,
                 Visible = true
-
             };
             btn2ch.Text = "2 CHF";
 
-            RoundButton btn1ch = new RoundButton()
+            CoinButton btn1ch = new CoinButton(1m)
             {
                 Width = 74,
                 Height = 74,
                 Visible = true
-
             };
             btn1ch.Text = "1 CHF";
 
-            RoundButton btn50Cch = new RoundButton()
+            CoinButton btn50Cch = new CoinButton(0.5m)
             {
                 Width = 58,
                 Height = 58,
                 Visible = true
-
             };
             btn50Cch.Text = "1/2 CHF";
 
-            RoundButton btn20Cch = new RoundButton()
+            CoinButton btn20Cch = new CoinButton(0.20m)
             {
                 Width = 67,
                 Height = 67,
                 Visible = true
-
             };
             btn20Cch.Text = "20c CHF";
 
-            RoundButton btn10Cch = new RoundButton()
+            CoinButton btn10Cch = new CoinButton(0.10m)
             {
                 Width = 61,
                 Height = 61,
                 Visible = true
-
             };
             btn10Cch.Text = "10c CHF";
 
-            RoundButton btn5Cch = new RoundButton()
+            CoinButton btn5Cch = new CoinButton(0.05m)
             {
                 Width = 55,
                 Height = 55,
@@ -144,6 +137,15 @@ namespace DrinkVendingMachineWFA.View.Impl
             btn10Cch.Anchor = AnchorStyles.Bottom;
             btn5Cch.Anchor = AnchorStyles.Bottom;
 
+            //register to notify subscriber when click
+            btn5ch.Click += Publish;
+            btn2ch.Click += Publish;
+            btn1ch.Click += Publish;
+            btn50Cch.Click += Publish;
+            btn20Cch.Click += Publish;
+            btn10Cch.Click += Publish;
+            btn5Cch.Click += Publish;
+
             flowLayoutPanel1.Controls.Add(btn5ch);
             flowLayoutPanel1.Controls.Add(btn2ch);
             flowLayoutPanel1.Controls.Add(btn1ch);
@@ -151,6 +153,25 @@ namespace DrinkVendingMachineWFA.View.Impl
             flowLayoutPanel1.Controls.Add(btn20Cch);
             flowLayoutPanel1.Controls.Add(btn10Cch);
             flowLayoutPanel1.Controls.Add(btn5Cch);
+        }
+
+
+        private void Publish(object sender, EventArgs e)
+        {
+            EventAggregator.Instance.Publish(
+                new ApplicationMessageGeneric<CoinStore>(new CoinStore()
+                {
+                    Value = ((CoinButton)sender).Value
+                }));
+        }
+
+        private void PublicDrink(object sender, EventArgs e)
+        {
+            EventAggregator.Instance.Publish(
+                new ApplicationMessageGeneric<Drink>(new Drink()
+                {
+                    Code = ((DrinkButton)sender).Code
+                }));
         }
     }
 }

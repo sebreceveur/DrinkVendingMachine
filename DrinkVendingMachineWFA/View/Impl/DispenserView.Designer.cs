@@ -35,10 +35,10 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.logMessageBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cancelBtn = new System.Windows.Forms.Button();
             this.validateBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,7 +66,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(707, 116);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(675, 165);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // splitContainer1
@@ -83,8 +83,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(707, 496);
-            this.splitContainer1.SplitterDistance = 376;
+            this.splitContainer1.Size = new System.Drawing.Size(675, 496);
+            this.splitContainer1.SplitterDistance = 327;
             this.splitContainer1.TabIndex = 3;
             // 
             // flowLayoutCans
@@ -94,7 +94,7 @@
             this.flowLayoutCans.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutCans.Name = "flowLayoutCans";
             this.flowLayoutCans.Padding = new System.Windows.Forms.Padding(20);
-            this.flowLayoutCans.Size = new System.Drawing.Size(707, 376);
+            this.flowLayoutCans.Size = new System.Drawing.Size(675, 327);
             this.flowLayoutCans.TabIndex = 0;
             // 
             // splitContainer3
@@ -119,7 +119,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer4);
             this.splitContainer2.Size = new System.Drawing.Size(954, 496);
-            this.splitContainer2.SplitterDistance = 707;
+            this.splitContainer2.SplitterDistance = 675;
             this.splitContainer2.TabIndex = 4;
             // 
             // splitContainer4
@@ -132,8 +132,8 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer4.Size = new System.Drawing.Size(243, 496);
-            this.splitContainer4.SplitterDistance = 171;
+            this.splitContainer4.Size = new System.Drawing.Size(275, 496);
+            this.splitContainer4.SplitterDistance = 200;
             this.splitContainer4.TabIndex = 0;
             // 
             // splitContainer5
@@ -145,22 +145,22 @@
             // 
             // splitContainer5.Panel1
             // 
-            this.splitContainer5.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer5.Panel1.Controls.Add(this.logMessageBox);
             // 
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer5.Size = new System.Drawing.Size(243, 321);
-            this.splitContainer5.SplitterDistance = 197;
+            this.splitContainer5.Size = new System.Drawing.Size(275, 292);
+            this.splitContainer5.SplitterDistance = 131;
             this.splitContainer5.TabIndex = 0;
             // 
-            // textBox1
+            // logMessageBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 209);
-            this.textBox1.TabIndex = 0;
+            this.logMessageBox.Location = new System.Drawing.Point(3, 3);
+            this.logMessageBox.Multiline = true;
+            this.logMessageBox.Name = "logMessageBox";
+            this.logMessageBox.Size = new System.Drawing.Size(269, 120);
+            this.logMessageBox.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
@@ -169,18 +169,8 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(243, 82);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(275, 82);
             this.flowLayoutPanel2.TabIndex = 0;
-            // 
-            // cancelBtn
-            // 
-            this.cancelBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cancelBtn.Location = new System.Drawing.Point(124, 3);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(115, 54);
-            this.cancelBtn.TabIndex = 1;
-            this.cancelBtn.Text = "Cancel";
-            this.cancelBtn.UseVisualStyleBackColor = true;
             // 
             // validateBtn
             // 
@@ -191,6 +181,16 @@
             this.validateBtn.TabIndex = 0;
             this.validateBtn.Text = "Validate";
             this.validateBtn.UseVisualStyleBackColor = true;
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cancelBtn.Location = new System.Drawing.Point(124, 3);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(115, 54);
+            this.cancelBtn.TabIndex = 1;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
             // 
             // DispenserView
             // 
@@ -232,7 +232,7 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.SplitContainer splitContainer5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox logMessageBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button validateBtn;
         private System.Windows.Forms.Button cancelBtn;

@@ -54,15 +54,7 @@ namespace DrinkVendingMachine.API
                     List<decimal> moneyAvailable = _coinStoreProvider.GetAvailableMoney();
                     _moneyHandler.GiveBackMoney(order.selectedDrinkCan.Price, order.coinInserted.Sum(coin => coin.Value), giveBackMoney, moneyAvailable);
 
-                    try
-                    {
-                        _coinStoreProvider.Update(order.coinInserted);
-                    }
-                    catch(Exception ex)
-                    {
-                        int test = 1;
-                    }
-                    
+                    _coinStoreProvider.Update(order.coinInserted);                    
                     _coinStoreProvider.RemoveChange(giveBackMoney);
                     _drinkProvider.RemoveDrink(order.selectedDrinkCan);
 

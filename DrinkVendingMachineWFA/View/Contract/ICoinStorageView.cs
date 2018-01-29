@@ -8,6 +8,6 @@ namespace DrinkVendingMachineWFA.View.Contract
 {
     public interface ICoinStorageView
     {
-        void RefreshCoinStorage();
+        void RefreshCoinStorage(Dictionary<decimal, int> coinQuantity);
     }
 }

@@ -34,8 +34,9 @@ namespace DrinkVendingMachineWFA
 
             //Presenters
             CoinCRUDPresenter coinCRUDPresenter = new CoinCRUDPresenter(coinCRUD, coinService);
-            DispenserPresenter dispenserPresenter = new DispenserPresenter(dispenserView, coinStorageView, drinkService);
-            //CoinStoragePresenter coinStoragePresenter = new CoinStoragePresenter();
+            CoinStoragePresenter coinStoragePresenter = new CoinStoragePresenter(coinStorageView, coinService);
+            DispenserPresenter dispenserPresenter = new DispenserPresenter(dispenserView, coinStoragePresenter, coinService, drinkService);
+            
 
             //Main
             MainForm main = new MainForm(dispenserView, coinCRUD);

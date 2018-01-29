@@ -57,7 +57,7 @@
     <Compile Include="Helper\DrinkButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Helper\RoundButton.cs">
+    <Compile Include="Helper\CoinButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\CatalogItem.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="Model\Drink.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Presenter\CoinCRUDPresenter.cs" />
+    <Compile Include="Presenter\CoinStoragePresenter.cs" />
     <Compile Include="Presenter\DispenserPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

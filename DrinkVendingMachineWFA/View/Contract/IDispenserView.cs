@@ -13,5 +13,11 @@ namespace DrinkVendingMachineWFA.View.Contract
         void SetCoinStorageView(Control coinStorageView);
 
         void RefreshDispenser(List<DrinkButton> drinkButtons);
+
+        void WriteMessage(string message);
+
+        event EventHandler Cancel;
+
+        event EventHandler Order;
     }
 }

@@ -13,5 +13,6 @@ namespace DrinkVendingMachineWFA.Service
         object Get(int id);
 
         void Post(object postData);
+
     }
 }

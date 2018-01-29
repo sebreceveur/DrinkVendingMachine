@@ -13,7 +13,7 @@ namespace DrinkVendingMachineWFA.Service
 {
     public class WebClientServiceBase : IWebClientService
     {
-        public string BaseUri { get; protected set; }
+        public virtual string BaseUri { get; protected set; }
 
         public WebClientServiceBase()
         {
